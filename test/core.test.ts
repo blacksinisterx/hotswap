@@ -155,3 +155,12 @@ test('capsule: a limit from earlier in the session is history, only a limit noth
   assert.ok(!renderCapsule(past).includes('Why the switch'));
   assert.ok(renderCapsule(stuck).includes('Why the switch'));
 });
+
+test('redactor: a secret written inline in a sentence is removed, a reference to one is kept', () => {
+  const inline = redact('Secrets live in .env, for example JWT_SECRET=Tr0ub4dor-demo-value-123 and that is it');
+  assert.ok(!inline.text.includes('Tr0ub4dor'));
+  assert.match(inline.text, /JWT_SECRET=\[REDACTED:env-secret\] and that is it/);
+  const refs = ['const API_KEY = process.env.API_KEY;', 'api_token: ${API_TOKEN}', 'TOKEN_LIMIT = 4096', 'PASSWORD=<your-password-here>', 'GITHUB_TOKEN: $GITHUB_TOKEN'].join('\n');
+  assert.equal(redact(refs).text, refs, 'references and placeholders are not secrets');
+  assert.ok(!redact('export STRIPE_SECRET_KEY="abcdef123456"').text.includes('abcdef123456'));
+});

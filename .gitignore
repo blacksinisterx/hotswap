@@ -7,3 +7,5 @@ research/rea-raw/*.json
 !research/rea-raw/*.meta.json
 HANDOFF.md
 *.hotswap.md
+docs/media/raw/
+launch/demo/transcript.json.bak

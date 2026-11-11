@@ -19,10 +19,11 @@ export const RULES: Rule[] = [
   { kind: 'jwt', pattern: /\beyJ[A-Za-z0-9_-]{8,}\.eyJ[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}/g },
   { kind: 'bearer-token', pattern: /\b(Bearer\s+)[A-Za-z0-9._~+/=-]{20,}/g, replace: (_m, pre) => `${pre}${R('bearer-token')}` },
   { kind: 'url-password', pattern: /\b([a-z][a-z0-9+.-]*:\/\/[^/\s:@]+:)[^/\s@]{3,}(@)/gi, replace: (_m, pre, at) => `${pre}${R('url-password')}${at}` },
-  // KEY=value lines (.env, exports) whose name says it is a secret
+  // NAME=value (.env lines, exports, or inline in a sentence) where the NAME says it is a secret.
+  // A value that is only a reference (process.env.X, $X, ${X}, <placeholder>, a call) is not a secret and is kept.
   {
     kind: 'env-secret',
-    pattern: /^(\s*(?:export\s+)?[A-Z0-9_]*(?:SECRET|TOKEN|PASSWORD|PASSWD|API_?KEY|PRIVATE_?KEY|ACCESS_?KEY|CREDENTIAL)[A-Z0-9_]*\s*[=:]\s*)(["']?)[^\s"'#]{6,}\2/gm,
+    pattern: /((?<![A-Za-z0-9_])(?:export\s+)?[A-Z0-9_]*(?:SECRET|TOKEN|PASSWORD|PASSWD|API_?KEY|PRIVATE_?KEY|ACCESS_?KEY|CREDENTIAL)[A-Z0-9_]*\s*[=:]\s*)(["']?)(?!process\.|import\.meta|os\.|env\.|getenv|\$|\{|<|\[)[^\s"'#,;)(]{6,}\2/g,
     replace: (_m, pre, q) => `${pre}${q}${R('env-secret')}${q}`,
   },
 ];

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hotswap demo</title>
+<style>
+  :root { --bg:#0e1116; --panel:#141922; --line:#252d3a; --text:#d7dde8; --dim:#7b8799; --green:#6fdc8c; --red:#ff6b6b; --amber:#f5c542; --cyan:#6cc7f0; --acc:#ff8a3d; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--text); overflow:hidden; }
+  body { display:grid; grid-template-rows: 84px 1fr 44px; font-family: "Segoe UI", system-ui, sans-serif; }
+  #caption { display:flex; align-items:center; padding:0 40px; font-size:26px; font-weight:600; letter-spacing:.2px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#141a24,#0e1116); }
+  #caption b { color:var(--acc); margin-right:16px; font-family: Consolas, "Cascadia Mono", monospace; }
+  #caption span { transition: opacity .3s; }
+  #wrap { padding:22px 40px 0; display:flex; }
+  #term { flex:1; background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; }
+  #bar { height:34px; display:flex; align-items:center; gap:8px; padding:0 14px; background:#1b222d; border-bottom:1px solid var(--line); color:var(--dim); font-size:13px; }
+  #bar i { width:11px; height:11px; border-radius:50%; background:#3a4455; display:inline-block; }
+  #bar em { margin-left:10px; font-style:normal; }
+  #screen { flex:1; padding:16px 20px; font: 17px/24px Consolas, "Cascadia Mono", "Courier New", monospace; overflow:hidden; white-space:pre-wrap; word-break:break-word; }
+  .line { min-height:24px; }
+  .prompt { color:var(--green); }
+  .cmd { color:#fff; }
+  .dim { color:var(--dim); } .ok { color:var(--green); font-weight:700; } .bad { color:var(--red); font-weight:700; }
+  .warn { color:var(--amber); font-weight:700; } .head { color:var(--cyan); font-weight:700; } .start { color:var(--amber); }
+  .cursor { display:inline-block; width:10px; height:19px; background:var(--text); vertical-align:-3px; margin-left:1px; animation: blink 1s steps(2,start) infinite; }
+  @keyframes blink { to { visibility:hidden; } }
+  #foot { display:flex; align-items:center; justify-content:space-between; padding:0 40px; font-size:13px; color:var(--dim); }
+  #end { position:absolute; inset:0; background:var(--bg); display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:18px; }
+  #end h1 { margin:0; font-size:76px; letter-spacing:1px; }
+  #end h1 span { color:var(--acc); }
+  #end p { margin:0; font-size:28px; color:var(--text); }
+  #end small { font-size:20px; color:var(--dim); }
+</style>
+</head>
+<body>
+  <div id="caption"><b>hotswap</b><span id="cap">&nbsp;</span></div>
+  <div id="wrap"><div id="term"><div id="bar"><i></i><i></i><i></i><em>terminal</em></div><div id="screen"></div></div></div>
+  <div id="foot"><span>hotswap v0.1 &middot; terminal replay of the real command output, on an invented session</span><span>open source &middot; MIT</span></div>
+  <div id="end"><h1>Hot<span>swap</span></h1><p>Switch AI mid-task without losing the thread.</p><small>No AI model &middot; No server &middot; No account</small></div>
+<script>
+const q = new URLSearchParams(location.search);
+const only = (q.get('scenes') || '').split(',').filter(Boolean).map(Number);
+const speed = Number(q.get('speed') || 1);
+const wait = (ms) => new Promise((r) => setTimeout(r, ms / speed));
+const screen = document.getElementById('screen');
+const cap = document.getElementById('cap');
+let cursor;
+
+function cls(line) {
+  if (/^=== Limit reached/.test(line)) return 'warn';
+  if (/^OK:/.test(line)) return 'ok';
+  if (/^NOT OK:/.test(line)) return 'bad';
+  if (/^\s*claude "/.test(line)) return 'start';
+  if (/^#{1,3} /.test(line)) return 'head';
+  if (/^>/.test(line) || /^\s+(source|tier|secrets removed|note):/.test(line)) return 'dim';
+  return '';
+}
+function el(text, c) { const d = document.createElement('div'); d.className = 'line ' + (c || ''); d.textContent = text; screen.appendChild(d); screen.scrollTop = screen.scrollHeight; return d; }
+function drop() { if (cursor) cursor.remove(); }
+async function typeCmd(text) {
+  const d = document.createElement('div'); d.className = 'line';
+  d.innerHTML = '<span class="prompt">~/shop-api $ </span><span class="cmd"></span><span class="cursor"></span>';
+  screen.appendChild(d); screen.scrollTop = screen.scrollHeight;
+  const span = d.querySelector('.cmd'); cursor = d.querySelector('.cursor');
+  for (const ch of text) { span.textContent += ch; await wait(26); }
+  await wait(380); drop();
+}
+async function printOut(text, per) {
+  for (const line of text.split('\n')) { el(line, cls(line)); await wait(per); }
+}
+
+(async () => {
+  const data = await (await fetch('transcript.json')).json();
+  let scene = 0, show = true, lastCmd = '';
+  for (const s of data.steps) {
+    if (s.t === 'caption') {
+      scene += 1; show = !only.length || only.includes(scene);
+      if (!show) continue;
+      screen.textContent = ''; cap.style.opacity = 0; await wait(250);
+      cap.innerHTML = s.text.replace(/^(\d+)\s+/, '<b>$1</b>'); cap.style.opacity = 1; await wait(900);
+      continue;
+    }
+    if (!show) continue;
+    if (s.t === 'cmd') { lastCmd = s.text; await typeCmd(s.text); }
+    else if (s.t === 'out') {
+      const lines = s.text.replace(/^\n/, '');
+      if (lastCmd.startsWith('hotswap watch')) {
+        const i = lines.indexOf('\n\n=== Limit');
+        await printOut(lines.slice(0, i), 60);
+        const c = document.createElement('div'); c.className = 'line'; c.innerHTML = '<span class="cursor"></span>'; screen.appendChild(c); await wait(2200); c.remove();
+        await printOut(lines.slice(i + 1), 110);
+        await wait(3200);
+      } else {
+        await printOut(lines, lines.split('\n').length > 20 ? 70 : 90);
+        await wait(lines.split('\n').length > 20 ? 3800 : 1500);
+      }
+    }
+    else if (s.t === 'end') {
+      if (only.length) continue;
+      document.getElementById('end').style.display = 'flex'; await wait(3800);
+    }
+  }
+  window.__done = true;
+})();
+</script>
+</body>
+</html>

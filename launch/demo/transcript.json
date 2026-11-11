@@ -1,0 +1,70 @@
+{
+ "title": "hotswap v0.1",
+ "note": "Real output of the real CLI on an invented session. Only the temporary folder name is shortened.",
+ "steps": [
+  {
+   "t": "caption",
+   "text": "1  You are mid-task in Claude Code. Hotswap is watching."
+  },
+  {
+   "t": "cmd",
+   "text": "hotswap watch --dir ."
+  },
+  {
+   "t": "out",
+   "text": "Watching Claude Code sessions (Ctrl+C to stop). Only new activity counts.\n\n=== Limit reached (2026-11-12T19:30:00.000Z) ===\n  You've hit your session limit · resets 11:40pm (Asia/Karachi)\n\nA capsule is ready: ~/shop-api\\HANDOFF.md\n  source: claude-code, session demo-ses (\"Add JWT auth to orders API\")\n  tier: hybrid; turns read 3, word for word 3; code blocks 1/1\n  secrets removed: 1 env-secret\n\nOpen a terminal in the folder and run:\n\n  claude \"Read HANDOFF.md fully, then continue the task from \"Latest request\". Do not start over.\""
+  },
+  {
+   "t": "caption",
+   "text": "2  The capsule is a plain Markdown file any AI can read."
+  },
+  {
+   "t": "cmd",
+   "text": "head -34 HANDOFF.md"
+  },
+  {
+   "t": "out",
+   "text": "# Hotswap handoff\n\n> You are taking over a task that was in progress in **Claude Code**. Read this whole file, then continue from \"Latest request\" below.\n> Do not start over and do not redo work that is already finished. If anything here looks cut off or unclear, say so first, then carry on.\n\n## State\n\n- **Goal (the first request):** Add JWT auth to the orders endpoint in shop-api. Secrets live in .env, for example JWT_SECRET=[REDACTED:env-secret]\n- **Latest request:** Good. Also make sure expired tokens return 401, not 500.\n- **Working folder:** `~/shop-api`, git branch `feature/jwt-auth`\n- **Session:** Add JWT auth to orders API\n- **Why the switch:** Claude Code reported a usage limit; it resets at 11:40pm (Asia/Karachi).\n\n### Open tasks\n\n- [/] Fix middleware order so missing tokens get 401\n- [ ] Add tests for expired tokens\n- [ ] Write the auth section of the README\n\n### Files changed (most recent last)\n\n- `src\\auth.ts`\n- `src\\routes\\orders.ts`\n\n### Last commands\n\n- `npm test -- orders` (failed): FAIL orders.test.ts: expected 401 without a token, got 200\n\n### Last error\n\nRun the orders tests: FAIL orders.test.ts: expected 401 without a token, got 200\n\n## Recent conversation (last 3 turns, word for word; each turn is quoted with \"> \")"
+  },
+  {
+   "t": "caption",
+   "text": "3  It is checkable: change one word and Hotswap notices."
+  },
+  {
+   "t": "cmd",
+   "text": "hotswap check HANDOFF.md"
+  },
+  {
+   "t": "out",
+   "text": "OK: The capsule is exactly as written.\n  id d28a09e2bf, tier hybrid, 3 turns, created 2026-11-11T23:50:15.792Z"
+  },
+  {
+   "t": "cmd",
+   "text": "sed -i 's/orders endpoint/payments endpoint/' HANDOFF.md"
+  },
+  {
+   "t": "cmd",
+   "text": "hotswap check HANDOFF.md"
+  },
+  {
+   "t": "out",
+   "text": "NOT OK: The text above the meta block was changed after Hotswap wrote it.\n  id d28a09e2bf, tier hybrid, 3 turns, created 2026-11-11T23:50:15.792Z"
+  },
+  {
+   "t": "caption",
+   "text": "4  Antigravity too. It cuts long messages itself, so Hotswap says \"partial\"."
+  },
+  {
+   "t": "cmd",
+   "text": "hotswap to claude --from antigravity"
+  },
+  {
+   "t": "out",
+   "text": "Handoff written: ~/landing\\HANDOFF.md (4.4 KB)\n  source: antigravity, session agy-demo (\"Build a landing page for the bakery with a menu se\")\n  tier: partial; turns read 3, word for word 3; code blocks 0/0\n  secrets removed: none found\n  note: Antigravity itself cut 1 of 2 user message(s) at about 1,000 characters in its own log, so they are incomplete here.\n  note: Source tier is Partial: Antigravity keeps its full conversation in files that are not readable outside the app.\n\nOpen a terminal in the folder and run:\n\n  claude \"Read HANDOFF.md fully, then continue the task from \"Latest request\". Do not start over.\"\n\n\nHANDOFF.md can contain text from your project. Do not commit or share it unless you have read it."
+  },
+  {
+   "t": "end",
+   "text": "No AI model. No server. No account. Everything stays on your computer."
+  }
+ ]
+}

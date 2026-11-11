@@ -9,6 +9,10 @@ Hotswap turns a Claude Code or Antigravity session into a *capsule*: one Markdow
 - **Checkable.** Every capsule ends with a fidelity report and a hash, and `hotswap check` tells you if the file was changed.
 - **Secrets are removed first.** If that step fails, nothing is written.
 
+![Hotswap: the limit arrives, a capsule is ready](docs/media/hotswap-demo.gif)
+
+*Terminal replay of the real command output on an invented session (no real chat). The full 47-second video is `docs/media/hotswap-demo.mp4`; `launch/demo/` regenerates it.*
+
 This is the local half (v0.1). The browser extension for web chats (ChatGPT, Claude, Gemini) is planned next; see [PLAN.md](PLAN.md).
 
 ## Quick start
@@ -64,9 +68,9 @@ When Claude Code hits a plan limit it writes a line to the session file with `is
 
 ## Measured
 
-- 27 tests (`npm test`, Node 22.18 or newer runs the TypeScript directly; `npm run build` produces JavaScript for Node 20+). They use small invented sessions in the real file shapes, never real conversations.
+- 28 tests (`npm test`, Node 22.18 or newer runs the TypeScript directly; `npm run build` produces JavaScript for Node 20+). They use small invented sessions in the real file shapes, never real conversations.
 - On the author's machine, `hotswap capture` read a 238 MB Claude Code session of 1,102 turns and wrote a 41 KB capsule in 2.9 seconds. The redactor removed 5 items from that capture (1 token-shaped string and 4 secret-looking environment lines); in the tests, planted fake secrets of eight kinds are all caught.
-- Of the 43 Claude Code sessions on that machine, 13 contained a limit line (87 in total); the detector rule was checked against those shapes.
+- The session files on that machine hold 87 limit lines across 13 sessions; the detector rule was built from, and checked against, those shapes.
 
 ## Limits (read these)
 
@@ -74,6 +78,7 @@ When Claude Code hits a plan limit it writes a line to the session file with `is
 - Antigravity is partial, as above. Images and documents attached in Claude Code cannot travel; they are listed by position.
 - Start commands for Codex, Gemini CLI, Cursor and Antigravity are best-known forms and are marked *not verified*; `claude "..."` and the web flow are the verified ones.
 - Web chat limit detection is not built yet: no tool read so far knows the wording of those limit screens. See [research/RESEARCH.md](research/RESEARCH.md).
+- The secret remover recognises known key formats and `NAME=value` where the name is written in capitals and says secret, token, password or key (a reference such as `process.env.X` is kept). A secret in another shape, for example a lowercase JSON key with an unusual value, may not be caught: read `HANDOFF.md` before you share it.
 - Capsules have not been tried with other people yet.
 
 ## More
