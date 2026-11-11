@@ -1,0 +1,2441 @@
+{
+ "dropdat": {
+  "modules": 7,
+  "semNodes": 28269,
+  "unknowns": 9979,
+  "limitations": 7,
+  "hits": {
+   "read:querySelector": {
+    "count": 126,
+    "at": [
+     "content-scripts/gemini.js:31:1446",
+     "content-scripts/copilot.js:6:3770"
+    ]
+   },
+   "read:querySelectorAll": {
+    "count": 120,
+    "at": [
+     "content-scripts/perplexity.js:6:1834",
+     "content-scripts/chatgpt.js:6:1894"
+    ]
+   },
+   "inject:textContent": {
+    "count": 72,
+    "at": [
+     "content-scripts/grok.js:6:4176",
+     "content-scripts/chatgpt.js:6:8873"
+    ]
+   },
+   "read:getAttribute": {
+    "count": 60,
+    "at": [
+     "content-scripts/copilot.js:31:927",
+     "content-scripts/claude.js:31:927"
+    ]
+   },
+   "inject:innerText": {
+    "count": 60,
+    "at": [
+     "content-scripts/grok.js:6:3557",
+     "content-scripts/gemini.js:6:1078"
+    ]
+   },
+   "inject:dispatchEvent": {
+    "count": 60,
+    "at": [
+     "content-scripts/grok.js:43:1844",
+     "content-scripts/gemini.js:43:3400"
+    ]
+   },
+   "inject:innerHTML": {
+    "count": 36,
+    "at": [
+     "content-scripts/claude.js:31:3548",
+     "content-scripts/grok.js:33:2873"
+    ]
+   },
+   "bare:URL": {
+    "count": 25,
+    "at": [
+     "content-scripts/grok.js:43:1593",
+     "content-scripts/claude.js:6:4890"
+    ]
+   },
+   "chrome:runtime/sendMessage": {
+    "count": 18,
+    "at": [
+     "content-scripts/gemini.js:31:5678",
+     "content-scripts/copilot.js:31:8009"
+    ]
+   },
+   "inject:focus": {
+    "count": 18,
+    "at": [
+     "content-scripts/grok.js:33:487",
+     "content-scripts/claude.js:33:487"
+    ]
+   },
+   "bare:fetch": {
+    "count": 13,
+    "at": [
+     "background.js:1:2266",
+     "background.js:1:1647"
+    ]
+   },
+   "inject:execCommand": {
+    "count": 12,
+    "at": [
+     "content-scripts/chatgpt.js:33:1323",
+     "content-scripts/copilot.js:33:1323"
+    ]
+   },
+   "bare:CustomEvent": {
+    "count": 12,
+    "at": [
+     "content-scripts/claude.js:43:3419",
+     "content-scripts/perplexity.js:43:3912"
+    ]
+   },
+   "bare:DataTransfer": {
+    "count": 12,
+    "at": [
+     "content-scripts/copilot.js:33:507",
+     "content-scripts/grok.js:33:1090"
+    ]
+   },
+   "bare:Event": {
+    "count": 12,
+    "at": [
+     "content-scripts/gemini.js:33:917",
+     "content-scripts/copilot.js:33:917"
+    ]
+   },
+   "bare:ClipboardEvent": {
+    "count": 12,
+    "at": [
+     "content-scripts/copilot.js:33:570",
+     "content-scripts/grok.js:33:570"
+    ]
+   },
+   "bare:InputEvent": {
+    "count": 12,
+    "at": [
+     "content-scripts/perplexity.js:33:1401",
+     "content-scripts/gemini.js:33:1621"
+    ]
+   },
+   "chrome:chrome": {
+    "count": 7,
+    "at": [
+     "content-scripts/grok.js:43:1269",
+     "content-scripts/gemini.js:43:1255"
+    ]
+   },
+   "inject:selectNodeContents": {
+    "count": 6,
+    "at": [
+     "content-scripts/copilot.js:33:1016",
+     "content-scripts/claude.js:33:1016"
+    ]
+   },
+   "inject:items": {
+    "count": 6,
+    "at": [
+     "content-scripts/perplexity.js:33:240",
+     "content-scripts/gemini.js:33:240"
+    ]
+   },
+   "read:observe": {
+    "count": 6,
+    "at": [
+     "content-scripts/perplexity.js:31:29",
+     "content-scripts/chatgpt.js:31:29"
+    ]
+   },
+   "inject:getSelection": {
+    "count": 6,
+    "at": [
+     "content-scripts/gemini.js:33:969",
+     "content-scripts/copilot.js:33:969"
+    ]
+   },
+   "inject:createRange": {
+    "count": 6,
+    "at": [
+     "content-scripts/grok.js:33:993",
+     "content-scripts/chatgpt.js:33:993"
+    ]
+   },
+   "inject:setData": {
+    "count": 6,
+    "at": [
+     "content-scripts/gemini.js:33:1106",
+     "content-scripts/chatgpt.js:33:1106"
+    ]
+   },
+   "bare:File": {
+    "count": 6,
+    "at": [
+     "content-scripts/copilot.js:33:436",
+     "content-scripts/chatgpt.js:33:436"
+    ]
+   },
+   "bare:MutationObserver": {
+    "count": 6,
+    "at": [
+     "content-scripts/claude.js:31:33",
+     "content-scripts/copilot.js:31:33"
+    ]
+   },
+   "bare:DragEvent": {
+    "count": 6,
+    "at": [
+     "content-scripts/perplexity.js:33:658",
+     "content-scripts/copilot.js:33:658"
+    ]
+   },
+   "bare:KeyboardEvent": {
+    "count": 6,
+    "at": [
+     "content-scripts/gemini.js:43:599",
+     "content-scripts/claude.js:43:599"
+    ]
+   },
+   "chrome:contextMenus/create": {
+    "count": 4,
+    "at": [
+     "background.js:1:6325",
+     "background.js:1:6500"
+    ]
+   },
+   "chrome:create": {
+    "count": 3,
+    "at": [
+     "background.js:1:9476",
+     "background.js:1:9080"
+    ]
+   },
+   "chrome:notifications/create": {
+    "count": 2,
+    "at": [
+     "background.js:1:6639",
+     "background.js:1:6675"
+    ]
+   },
+   "chrome:windows/create": {
+    "count": 1,
+    "at": [
+     "background.js:1:8896"
+    ]
+   },
+   "chrome:alarms/create": {
+    "count": 1,
+    "at": [
+     "background.js:1:10646"
+    ]
+   },
+   "bare:FileReader": {
+    "count": 1,
+    "at": [
+     "background.js:1:10175"
+    ]
+   }
+  },
+  "endpoints": [
+   "e.dataUrl",
+   "`${s}${e}`",
+   "e",
+   "`${i}/api/v1/attachments/${e.id}/download`",
+   "`${_}${e}`",
+   "`${i}/api/v1/capsules/${r}/attachments`",
+   "`${s}/api/v1/capsules/${t}/attachments/direct`",
+   "r"
+  ],
+  "relations": {
+   "aliases": 8493,
+   "reads": 6175,
+   "reads-property": 2266,
+   "writes-property": 366,
+   "captures": 1528,
+   "defines": 2849,
+   "writes": 285,
+   "awaits": 151,
+   "creates-promise": 59,
+   "calls": 512,
+   "argument-to-parameter": 427,
+   "supplies-request-field": 8,
+   "returns-to-call": 667,
+   "chains": 7,
+   "schedules-timer": 72,
+   "constructs-request": 13,
+   "cancels-timer": 12,
+   "returns-task": 14,
+   "coerces": 28,
+   "consumed-by": 6,
+   "detaches-task": 7,
+   "destructures": 6,
+   "spreads": 15,
+   "registers-listener": 12,
+   "owns": 1
+  },
+  "urlsInSource": [
+   "https://dropdat.app",
+   "https://react.dev/errors/",
+   "https://capsule.dropdat.app",
+   "https://github.com/uuidjs/uuid#getrandomvalues-not-supported",
+   "https://dropdat.app/billing",
+   "https://chatgpt.com/*",
+   "https://chat.openai.com/*",
+   "https://claude.ai/*",
+   "https://copilot.microsoft.com/*",
+   "https://gemini.google.com/*",
+   "https://grok.com/*",
+   "https://*.grok.com/*",
+   "https://www.perplexity.ai/*",
+   "https://perplexity.ai/*"
+  ],
+  "limitWording": [
+   "background.js: chment upload pass failed`,e)}return{ok:r,failed:i,pulled:a,quotaExceeded:s}}var h=`dropdat_api_key`;async function g(){try{return(await chrome.s",
+   "background.js: ropdat] sync after save failed:`,e),{ok:0,failed:1,pulled:0,quotaExceeded:!1}));n({ok:!0,id:t.id,sync:i})}catch(e){console.error(`[dropdat] SAVE_",
+   "content-scripts/chatgpt.js: ,e.style.color=`#fff`;try{let e=await q();t(M,`#0a8f4a`),e?.quotaExceeded&&await w({title:`Capsule saved locally — sync blocked`,body:`You've hit",
+   "content-scripts/chatgpt.js: `background rejected capsule: ${JSON.stringify(i)}`);return{quotaExceeded:i?.sync?.quotaExceeded===!0}}var J=`You are assistant now and observe t",
+   "content-scripts/claude.js: ,e.style.color=`#fff`;try{let e=await q();t(M,`#0a8f4a`),e?.quotaExceeded&&await w({title:`Capsule saved locally — sync blocked`,body:`You've hit",
+   "content-scripts/claude.js: `background rejected capsule: ${JSON.stringify(i)}`);return{quotaExceeded:i?.sync?.quotaExceeded===!0}}var J=`You are assistant now and observe t",
+   "content-scripts/copilot.js: ,e.style.color=`#fff`;try{let e=await q();t(M,`#0a8f4a`),e?.quotaExceeded&&await w({title:`Capsule saved locally — sync blocked`,body:`You've hit",
+   "content-scripts/copilot.js: `background rejected capsule: ${JSON.stringify(i)}`);return{quotaExceeded:i?.sync?.quotaExceeded===!0}}var J=`You are assistant now and observe t"
+  ],
+  "injectionMarkers": [
+   "chunks/popup-vhIHygW4.js: beforeinput",
+   "chunks/popup-vhIHygW4.js: beforeinput",
+   "content-scripts/chatgpt.js: dispatchEvent(new ClipboardEvent",
+   "content-scripts/chatgpt.js: dispatchEvent(new DragEvent",
+   "content-scripts/chatgpt.js: dispatchEvent(new ClipboardEvent",
+   "content-scripts/chatgpt.js: dispatchEvent(new InputEvent",
+   "content-scripts/chatgpt.js: dispatchEvent(new InputEvent",
+   "content-scripts/claude.js: dispatchEvent(new ClipboardEvent",
+   "content-scripts/claude.js: dispatchEvent(new DragEvent",
+   "content-scripts/claude.js: dispatchEvent(new ClipboardEvent",
+   "content-scripts/claude.js: dispatchEvent(new InputEvent",
+   "content-scripts/claude.js: dispatchEvent(new InputEvent"
+  ],
+  "files": 8
+ },
+ "contextswitch": {
+  "modules": 16,
+  "semNodes": 9410,
+  "unknowns": 3201,
+  "limitations": 8,
+  "hits": {
+   "read:querySelectorAll": {
+    "count": 48,
+    "at": [
+     "content/gemini.js:87:25",
+     "content/token-meter.js:1094:22"
+    ]
+   },
+   "inject:textContent": {
+    "count": 47,
+    "at": [
+     "content/token-meter.js:1198:6",
+     "popup/popup.js:165:4"
+    ]
+   },
+   "read:querySelector": {
+    "count": 42,
+    "at": [
+     "content/gemini.js:54:21",
+     "content/gemini.js:85:24"
+    ]
+   },
+   "inject:dispatchEvent": {
+    "count": 35,
+    "at": [
+     "content/poe.js:79:6",
+     "content/deepseek.js:89:6"
+    ]
+   },
+   "inject:focus": {
+    "count": 26,
+    "at": [
+     "content/mistral.js:75:4",
+     "content/chatgpt.js:131:4"
+    ]
+   },
+   "bare:Event": {
+    "count": 23,
+    "at": [
+     "content/claude.js:111:32",
+     "content/gemini.js:136:32"
+    ]
+   },
+   "inject:innerHTML": {
+    "count": 22,
+    "at": [
+     "popup/popup.js:863:4",
+     "popup/popup.js:259:2"
+    ]
+   },
+   "bare:InputEvent": {
+    "count": 12,
+    "at": [
+     "content/mistral.js:72:32",
+     "content/token-meter.js:945:32"
+    ]
+   },
+   "read:getAttribute": {
+    "count": 11,
+    "at": [
+     "content/grok.js:24:23",
+     "content/copilot.js:24:23"
+    ]
+   },
+   "inject:innerText": {
+    "count": 10,
+    "at": [
+     "content/grok.js:83:6",
+     "content/lovable.js:72:6"
+    ]
+   },
+   "bare:fetch": {
+    "count": 7,
+    "at": [
+     "popup/popup.js:1189:2",
+     "background/background.js:271:29"
+    ]
+   },
+   "bare:URL": {
+    "count": 4,
+    "at": [
+     "background/background.js:36:32",
+     "popup/popup.js:105:20"
+    ]
+   },
+   "chrome:runtime/sendMessage": {
+    "count": 3,
+    "at": [
+     "popup/popup.js:693:29",
+     "popup/popup.js:395:23"
+    ]
+   },
+   "chrome:tabs/sendMessage": {
+    "count": 3,
+    "at": [
+     "background/background.js:107:29",
+     "popup/popup.js:196:11"
+    ]
+   },
+   "chrome:scripting/executeScript": {
+    "count": 2,
+    "at": [
+     "background/background.js:113:12",
+     "popup/popup.js:187:10"
+    ]
+   },
+   "chrome:tabs/create": {
+    "count": 2,
+    "at": [
+     "background/background.js:100:20",
+     "popup/popup.js:529:2"
+    ]
+   },
+   "inject:createRange": {
+    "count": 2,
+    "at": [
+     "content/token-meter.js:936:22",
+     "content/claude.js:118:20"
+    ]
+   },
+   "inject:getSelection": {
+    "count": 2,
+    "at": [
+     "content/token-meter.js:935:26",
+     "content/claude.js:117:24"
+    ]
+   },
+   "read:observe": {
+    "count": 2,
+    "at": [
+     "content/token-meter.js:1156:2",
+     "content/token-meter.js:1082:8"
+    ]
+   },
+   "inject:execCommand": {
+    "count": 2,
+    "at": [
+     "content/token-meter.js:940:24",
+     "content/claude.js:124:6"
+    ]
+   },
+   "inject:selectNodeContents": {
+    "count": 2,
+    "at": [
+     "content/token-meter.js:937:8",
+     "content/claude.js:119:6"
+    ]
+   },
+   "chrome:identity/launchWebAuthFlow": {
+    "count": 1,
+    "at": [
+     "background/background.js:254:10"
+    ]
+   },
+   "bare:MutationObserver": {
+    "count": 1,
+    "at": [
+     "content/token-meter.js:1155:23"
+    ]
+   }
+  },
+  "endpoints": [
+   "authToken",
+   "`${API_URL}/auth/google`",
+   "user",
+   "`${apiUrl}/auth/logout`",
+   "state",
+   "projects",
+   "`${API_URL}/improve-prompt`",
+   "access_token",
+   "`${CONFIG.API_URL}/compress`",
+   "`${apiUrl}/user/stats`",
+   "`${apiUrl}/user/profile`",
+   "`${apiUrl}/user/track-save`"
+  ],
+  "relations": {
+   "defines": 1032,
+   "writes-property": 417,
+   "argument-to-parameter": 181,
+   "reads-property": 818,
+   "reads": 1956,
+   "aliases": 1835,
+   "captures": 475,
+   "writes": 72,
+   "destructures": 6,
+   "awaits": 64,
+   "calls": 180,
+   "registers-listener": 18,
+   "supplies-request-field": 16,
+   "returns-to-call": 153,
+   "parses": 1,
+   "cancels-timer": 5,
+   "schedules-timer": 8,
+   "removes-listener": 3,
+   "chains": 2,
+   "consumed-by": 5,
+   "detaches-task": 5,
+   "coerces": 10,
+   "creates-promise": 16,
+   "constructs-request": 7,
+   "returns-task": 1,
+   "spreads": 1
+  },
+  "urlsInSource": [
+   "https://chatgpt.com':",
+   "https://chat.openai.com':",
+   "https://claude.ai':",
+   "https://gemini.google.com':",
+   "https://www.perplexity.ai':",
+   "https://perplexity.ai':",
+   "https://chat.deepseek.com':",
+   "https://grok.com':",
+   "https://x.com':",
+   "https://copilot.microsoft.com':",
+   "https://chat.mistral.ai':",
+   "https://v0.dev':",
+   "https://lovable.dev':",
+   "https://poe.com':",
+   "https://chatgpt.com/",
+   "https://claude.ai/new",
+   "https://gemini.google.com/app",
+   "https://www.perplexity.ai/",
+   "https://chat.deepseek.com/",
+   "https://grok.com/",
+   "https://copilot.microsoft.com/",
+   "https://chat.mistral.ai/",
+   "https://v0.dev/",
+   "https://lovable.dev/",
+   "https://poe.com/",
+   "https://accounts.google.com/o/oauth2/v2/auth",
+   "https://context-switch-backend.vercel.app/api",
+   "http://localhost:5000/api",
+   "https://www.context-switch.dev/#pricing"
+  ],
+  "limitWording": [
+   "popup/popup.js: showToast(`Monthly limit reached (${data.usage?.used}/${data.usage?.limit})`, 'error');",
+   "popup/popup.js: I've switched sessions due to rate limits. The above is my COMPLETE conversation history. Please continue helping me wit"
+  ],
+  "injectionMarkers": [
+   "content/chatgpt.js: dispatchEvent(new InputEvent",
+   "content/claude.js: execCommand('insertText'",
+   "content/claude.js: dispatchEvent(new InputEvent",
+   "content/copilot.js: dispatchEvent(new InputEvent",
+   "content/deepseek.js: dispatchEvent(new InputEvent",
+   "content/gemini.js: dispatchEvent(new InputEvent",
+   "content/grok.js: dispatchEvent(new InputEvent",
+   "content/lovable.js: dispatchEvent(new InputEvent",
+   "content/mistral.js: dispatchEvent(new InputEvent",
+   "content/perplexity.js: dispatchEvent(new InputEvent",
+   "content/poe.js: dispatchEvent(new InputEvent",
+   "content/token-meter.js: execCommand('insertText'"
+  ],
+  "files": 16
+ },
+ "capsulehub": {
+  "modules": 664,
+  "semNodes": 92553,
+  "unknowns": 58338,
+  "limitations": 6,
+  "hits": {
+   "read:querySelector": {
+    "count": 485,
+    "at": [
+     "content-utils.js:3984:41",
+     "content.js:2794:14"
+    ]
+   },
+   "inject:dispatchEvent": {
+    "count": 179,
+    "at": [
+     "content.js:2051:10",
+     "content.js:779:6"
+    ]
+   },
+   "read:querySelectorAll": {
+    "count": 171,
+    "at": [
+     "notebooklm-inserter.js:1750:31",
+     "content.js:3091:46"
+    ]
+   },
+   "inject:textContent": {
+    "count": 127,
+    "at": [
+     "content-utils.js:3161:4",
+     "content-utils.js:1984:43"
+    ]
+   },
+   "read:getAttribute": {
+    "count": 112,
+    "at": [
+     "content-utils.js:4124:20",
+     "notebooklm-inserter.js:1057:32"
+    ]
+   },
+   "chrome:runtime/sendMessage": {
+    "count": 61,
+    "at": [
+     "content-utils.js:2114:24",
+     "content-utils.js:763:52"
+    ]
+   },
+   "inject:innerHTML": {
+    "count": 48,
+    "at": [
+     "popup.js:1057:2",
+     "popup.js:628:4"
+    ]
+   },
+   "bare:Event": {
+    "count": 43,
+    "at": [
+     "content.js:1441:34",
+     "notebooklm-inserter.js:1892:55"
+    ]
+   },
+   "bare:CustomEvent": {
+    "count": 42,
+    "at": [
+     "content.js:1292:35",
+     "grok-inserter.js:319:37"
+    ]
+   },
+   "bare:fetch": {
+    "count": 39,
+    "at": [
+     "background.js:1009:6",
+     "content-utils.js:2060:49"
+    ]
+   },
+   "bare:KeyboardEvent": {
+    "count": 26,
+    "at": [
+     "content-utils.js:2885:65",
+     "content.js:951:34"
+    ]
+   },
+   "inject:innerText": {
+    "count": 24,
+    "at": [
+     "content-utils.js:1724:51",
+     "content-utils.js:1660:39"
+    ]
+   },
+   "inject:focus": {
+    "count": 24,
+    "at": [
+     "content.js:4199:2",
+     "content.js:1215:8"
+    ]
+   },
+   "bare:DataTransfer": {
+    "count": 22,
+    "at": [
+     "content.js:848:29",
+     "content.js:766:29"
+    ]
+   },
+   "inject:body/dispatchEvent": {
+    "count": 14,
+    "at": [
+     "content-utils.js:2934:28",
+     "content-utils.js:2940:20"
+    ]
+   },
+   "bare:URL": {
+    "count": 14,
+    "at": [
+     "background.js:700:26",
+     "content-utils.js:2594:40"
+    ]
+   },
+   "read:observe": {
+    "count": 13,
+    "at": [
+     "ds-inserter.js:26:12",
+     "grok-inserter.js:254:4"
+    ]
+   },
+   "bare:MutationObserver": {
+    "count": 13,
+    "at": [
+     "emergent-inserter.js:97:25",
+     "content.js:1516:31"
+    ]
+   },
+   "inject:execCommand": {
+    "count": 12,
+    "at": [
+     "content.js:4212:4",
+     "content.js:1117:10"
+    ]
+   },
+   "inject:files": {
+    "count": 10,
+    "at": [
+     "content.js:656:6",
+     "claude-inserter.js:224:67"
+    ]
+   },
+   "network:fetch": {
+    "count": 9,
+    "at": [
+     "gemini-inserter.js:163:27",
+     "gpt-pdf-interceptor.js:68:26"
+    ]
+   },
+   "bare:DragEvent": {
+    "count": 9,
+    "at": [
+     "claude-inserter.js:247:41",
+     "replit-inserter.js:232:23"
+    ]
+   },
+   "bare:FileReader": {
+    "count": 8,
+    "at": [
+     "gemini-inserter.js:154:39",
+     "grok-inserter.js:363:43"
+    ]
+   },
+   "bare:File": {
+    "count": 8,
+    "at": [
+     "replit-inserter.js:203:23",
+     "claude-inserter.js:203:19"
+    ]
+   },
+   "inject:getSelection": {
+    "count": 7,
+    "at": [
+     "content.js:3570:20",
+     "replit-inserter.js:36:38"
+    ]
+   },
+   "bare:Blob": {
+    "count": 6,
+    "at": [
+     "gemini-inserter.js:143:31",
+     "notebooklm-interceptor.js:25:36"
+    ]
+   },
+   "read:scrollTop": {
+    "count": 5,
+    "at": [
+     "content-utils.js:4787:28",
+     "content-utils.js:4783:8"
+    ]
+   },
+   "inject:dataTransfer": {
+    "count": 5,
+    "at": [
+     "content.js:2089:8",
+     "content.js:2114:8"
+    ]
+   },
+   "inject:prototype/dispatchEvent": {
+    "count": 5,
+    "at": [
+     "notebooklm-inserter.js:1436:38",
+     "notebooklm-inserter.js:1469:12"
+    ]
+   },
+   "inject:createRange": {
+    "count": 5,
+    "at": [
+     "emergent-inserter.js:271:34",
+     "lovable-inserter.js:16:30"
+    ]
+   },
+   "inject:selectNodeContents": {
+    "count": 5,
+    "at": [
+     "content.js:4184:4",
+     "content.js:4207:4"
+    ]
+   },
+   "chrome:tabs/sendMessage": {
+    "count": 5,
+    "at": [
+     "popup.js:771:2",
+     "popup.js:499:16"
+    ]
+   },
+   "bare:ClipboardEvent": {
+    "count": 5,
+    "at": [
+     "content.js:1627:35",
+     "content.js:1407:38"
+    ]
+   },
+   "inject:setData": {
+    "count": 4,
+    "at": [
+     "content.js:1382:8",
+     "content.js:1406:12"
+    ]
+   },
+   "bare:XMLHttpRequest": {
+    "count": 4,
+    "at": [
+     "gpt-pdf-interceptor.js:101:28",
+     "gpt-pdf-interceptor.js:107:4"
+    ]
+   },
+   "read:el/querySelector": {
+    "count": 3,
+    "at": [
+     "content.js:3533:19",
+     "content.js:3519:8"
+    ]
+   },
+   "read:parentElement/querySelector": {
+    "count": 2,
+    "at": [
+     "notebooklm-inserter.js:1098:40",
+     "notebooklm-inserter.js:479:24"
+    ]
+   },
+   "read:scrollIntoView": {
+    "count": 2,
+    "at": [
+     "content.js:3814:2",
+     "content-utils.js:2434:24"
+    ]
+   },
+   "inject:EventTarget/prototype/dispatchEvent": {
+    "count": 2,
+    "at": [
+     "notebooklm-interceptor.js:251:38",
+     "notebooklm-interceptor.js:270:12"
+    ]
+   },
+   "read:parentNode/querySelector": {
+    "count": 1,
+    "at": [
+     "notebooklm-inserter.js:774:25"
+    ]
+   },
+   "inject:dataTransfer/setData": {
+    "count": 1,
+    "at": [
+     "popup.js:1389:4"
+    ]
+   },
+   "chrome:identity/launchWebAuthFlow": {
+    "count": 1,
+    "at": [
+     "background.js:690:4"
+    ]
+   },
+   "read:scrollTo": {
+    "count": 1,
+    "at": [
+     "content-utils.js:2439:20"
+    ]
+   },
+   "inject:row/dispatchEvent": {
+    "count": 1,
+    "at": [
+     "content.js:3834:6"
+    ]
+   },
+   "inject:row/innerText": {
+    "count": 1,
+    "at": [
+     "content.js:3857:21"
+    ]
+   },
+   "read:row/scrollIntoView": {
+    "count": 1,
+    "at": [
+     "content.js:3833:6"
+    ]
+   },
+   "bare:InputEvent": {
+    "count": 1,
+    "at": [
+     "replit-inserter.js:29:45"
+    ]
+   }
+  },
+  "endpoints": [
+   "authToken",
+   "teamUrl",
+   "e",
+   "U",
+   "img.src",
+   "<|notimestamps|>",
+   "`${API_BASE_URL}/teams/`",
+   "localConvoMappings",
+   "`${API_BASE_URL}/teams/${teamId}`",
+   "dlResult.url",
+   "`${API_BASE_URL}/users/auth/google`",
+   "src",
+   "`${API_BASE_URL}/capsules/attachments/${assetId}`",
+   "`${API_BASE_URL}/capsules/${capsuleId}`",
+   "lastCapsuleId",
+   "res.url",
+   "t",
+   "json.download_url",
+   "`${API_BASE_URL}/capsules/${capsuleId}/tag`",
+   "`${API_BASE_URL}/capsules/dynamic-context`",
+   "request.payload.url",
+   "`${API_BASE_URL}/capsules/${capsuleId}/team`",
+   "<|endoftext|>",
+   "`${API_BASE_URL}/capsules/convo-mapping/${conversationId}`",
+   "apiUrl",
+   "`${API_BASE_URL}/capsules/attachments`",
+   "url",
+   "`${API_BASE_URL}/capsules/featured`",
+   "tier",
+   "`${API_BASE_URL}/capsules`",
+   "te",
+   "`${API_BASE_URL}/teams/${teamId}/members`",
+   "`${API_BASE_URL}/users/login`",
+   "`${API_BASE_URL}/teams/${teamId}/members/${encodeURIComponent(email)}`",
+   "request.url",
+   "`${API_BASE_URL}/capsules/${capsuleId}/versions`",
+   "access_token",
+   "userUrl",
+   "item.url",
+   "`${API_BASE_URL}/suggestion`"
+  ],
+  "relations": {
+   "reads-property": 4699,
+   "reads": 10924,
+   "captures": 13590,
+   "calls": 2554,
+   "aliases": 17765,
+   "writes": 821,
+   "returns-to-call": 2312,
+   "defines": 11229,
+   "argument-to-parameter": 882,
+   "creates-promise": 194,
+   "writes-property": 557,
+   "awaits": 348,
+   "supplies-request-field": 67,
+   "cancels-timer": 56,
+   "detaches-task": 42,
+   "registers-listener": 8,
+   "destructures": 45,
+   "schedules-timer": 148,
+   "returns-task": 36,
+   "constructs-request": 39,
+   "coerces": 31,
+   "chains": 65,
+   "consumed-by": 12,
+   "owns": 13,
+   "parses": 1,
+   "spreads": 2
+  },
+  "urlsInSource": [
+   "https://backend.tilantra.com",
+   "http://localhost:8000",
+   "https://forms.gle/G5jFAiHe8XgrKjP86",
+   "https://www.googleapis.com/oauth2/v3/userinfo",
+   "https://accounts.google.com/o/oauth2/auth",
+   "https://gemini.google.com/app/",
+   "https://gemini.google.com/u/0/app/",
+   "https://claude.ai/chat/",
+   "https://claude.ai/project/",
+   "https://chat.deepseek.com/a/chat/s/",
+   "https://copilot.microsoft.com/chats/",
+   "https://grok.com/chat/",
+   "https://chatgpt.com/c/",
+   "https://chatgpt.com/g/",
+   "https://replit.com/@user/ProjectName",
+   "https://app.emergent.sh/project/",
+   "https://www.perplexity.ai/...",
+   "https://ppl-ai-file-upload.s3.amazonaws...",
+   "https://replit.com$",
+   "https://capsulehub.tilantra.com/billing",
+   "https://github.com/MrRio/jsPDF",
+   "http://www.yworks.com",
+   "https://github.com/HackbrettXXX",
+   "https://github.com/acspike",
+   "https://github.com/willowsystems",
+   "https://github.com/pablohess",
+   "https://github.com/fjenett",
+   "https://github.com/warrenweckesser",
+   "https://github.com/lifof",
+   "https://github.com/lsdriscoll",
+   "https://github.com/stefslon",
+   "https://github.com/jmorel",
+   "https://github.com/chris-rock",
+   "https://github.com/juanpgaviria",
+   "https://github.com/dollaruw",
+   "https://github.com/diegocr",
+   "https://github.com/Flamenco",
+   "https://github.com/Gavvers",
+   "http://www.phpied.com/rgb-color-parser-in-javascript/",
+   "http://www.myersdaily.org/joseph/javascript/md5.js",
+   "http://www.fpdf.org/en/script/script37.php",
+   "http://opensource.org/licenses/mit-license",
+   "https://www.cs.cmu.edu/~dst/Adobe/Gallery/anon21jul01-pdf-encryption.txt",
+   "https://github.com/foliojs/pdfkit/blob/master/lib/security.js",
+   "https://github.com/jamesbrobb",
+   "https://github.com/deanm/omggif",
+   "https://webpjs.appspot.com",
+   "https://github.com/Pantura",
+   "http://jspdf.default.namespaceuri/",
+   "https://github.com/emscripten-core/emscripten/wiki/Linking",
+   "https://emscripten.org/docs/porting/pthreads.html#blocking-on-the-main-browser-thread",
+   "https://cdn.jsdelivr.net/npm/@xenova/transformers@$",
+   "https://huggingface.co/",
+   "https://github.com/xenova/transformers.js/issues/new/choose.",
+   "https://gist.github.com/hollance/42e32852f24243b748ae6bc1f985b13a",
+   "https://huggingface.co/docs/transformers/main/chat_templating",
+   "https://github.com/xenova/transformers.js/issues/new/choose.');r.push(e",
+   "https://huggingface.co/docs/transformers.js/guides/node-audio-processing.",
+   "https://notebooklm.google.com"
+  ],
+  "limitWording": [
+   "content.js: showCustomModal(\"Capsule creation limit reached. Please upgrade your tier to proceed.\", true);",
+   "content.js: showCustomModal(\"Capsule creation limit reached. Please upgrade your tier to proceed.\", true);",
+   "content.js: showCustomModal(\"Capsule creation limit reached. Please upgrade your tier to proceed.\", true);",
+   "content.js: showCustomModal(\"Capsule creation limit reached. Please upgrade your tier to proceed.\", true);",
+   "content.js: showCustomModal(\"Capsule creation limit reached. Please upgrade your tier to proceed.\", true);",
+   "content.js: showCustomModal(\"Capsule creation limit reached. Please upgrade your tier to proceed.\", true);",
+   "content.js: showCustomModal(\"Capsule creation limit reached. Please upgrade your tier to proceed.\", true);",
+   "content.js: showCustomModal(\"Capsule creation limit reached. Please upgrade your tier to proceed.\", true);"
+  ],
+  "injectionMarkers": [
+   "claude-inserter.js: new DataTransfer(",
+   "claude-inserter.js: dispatchEvent(new DragEvent",
+   "claude-inserter.js: dispatchEvent(new DragEvent",
+   "claude-inserter.js: 'dragover'",
+   "claude-inserter.js: dispatchEvent(new DragEvent",
+   "claude-inserter.js: 'drop'",
+   "content.js: new DataTransfer(",
+   "content.js: 'dragover'",
+   "content.js: 'drop'",
+   "content.js: new DataTransfer(",
+   "content.js: new DataTransfer(",
+   "content.js: new DataTransfer("
+  ],
+  "files": 22
+ },
+ "contextcapsule": {
+  "modules": 6,
+  "semNodes": 3502,
+  "unknowns": 1144,
+  "limitations": 5,
+  "hits": {
+   "read:querySelector": {
+    "count": 28,
+    "at": [
+     "content/scrapers/claude.js:59:6",
+     "content/inject.js:254:13"
+    ]
+   },
+   "inject:textContent": {
+    "count": 14,
+    "at": [
+     "content/inject.js:575:6",
+     "content/inject.js:688:4"
+    ]
+   },
+   "read:querySelectorAll": {
+    "count": 10,
+    "at": [
+     "content/inject.js:550:16",
+     "content/scrapers/gemini.js:13:6"
+    ]
+   },
+   "read:scrollTop": {
+    "count": 5,
+    "at": [
+     "content/scrapers/core.js:388:10",
+     "content/scrapers/core.js:367:23"
+    ]
+   },
+   "inject:innerHTML": {
+    "count": 4,
+    "at": [
+     "content/inject.js:290:4",
+     "content/inject.js:541:16"
+    ]
+   },
+   "inject:focus": {
+    "count": 3,
+    "at": [
+     "content/inject.js:444:44",
+     "content/inject.js:558:56"
+    ]
+   },
+   "read:getAttribute": {
+    "count": 2,
+    "at": [
+     "content/scrapers/chatgpt.js:37:19",
+     "content/scrapers/chatgpt.js:48:19"
+    ]
+   },
+   "chrome:scripting/executeScript": {
+    "count": 2,
+    "at": [
+     "background.js:60:10",
+     "background.js:66:10"
+    ]
+   },
+   "bare:fetch": {
+    "count": 2,
+    "at": [
+     "content/inject.js:134:11",
+     "content/inject.js:600:11"
+    ]
+   },
+   "read:__ccObserver/observe": {
+    "count": 1,
+    "at": [
+     "content/inject.js:702:4"
+    ]
+   },
+   "inject:innerText": {
+    "count": 1,
+    "at": [
+     "content/scrapers/core.js:48:13"
+    ]
+   },
+   "inject:execCommand": {
+    "count": 1,
+    "at": [
+     "content/inject.js:500:15"
+    ]
+   },
+   "bare:URL": {
+    "count": 1,
+    "at": [
+     "background.js:15:14"
+    ]
+   },
+   "bare:MutationObserver": {
+    "count": 1,
+    "at": [
+     "content/inject.js:699:30"
+    ]
+   }
+  },
+  "endpoints": [
+   "API_URL",
+   "FEEDBACK_URL + \"/rest/v1/feedback\""
+  ],
+  "relations": {
+   "returns-to-call": 73,
+   "reads": 787,
+   "defines": 410,
+   "captures": 223,
+   "chains": 4,
+   "aliases": 979,
+   "reads-property": 263,
+   "writes": 76,
+   "argument-to-parameter": 69,
+   "schedules-timer": 9,
+   "coerces": 9,
+   "writes-property": 39,
+   "calls": 70,
+   "cancels-timer": 2,
+   "creates-promise": 19,
+   "returns-task": 8,
+   "constructs-request": 2,
+   "detaches-task": 5,
+   "parses": 1,
+   "supplies-request-field": 7,
+   "owns": 2,
+   "awaits": 8,
+   "registers-listener": 1
+  },
+  "urlsInSource": [
+   "https://evil.example/?ref=claude.ai.",
+   "https://wmdulbvlxxmekiczxzgl.supabase.co",
+   "https://chromewebstore.google.com/detail/level-up-my-prompt/pgpdabpgplilkcdhpaopmclicppldken"
+  ],
+  "limitWording": [],
+  "injectionMarkers": [],
+  "files": 6
+ },
+ "aicontextsaver": {
+  "modules": 30,
+  "semNodes": 10379,
+  "unknowns": 3608,
+  "limitations": 8,
+  "hits": {
+   "read:querySelectorAll": {
+    "count": 61,
+    "at": [
+     "content/chatgpt.js:47:6",
+     "content/meta.js:60:12"
+    ]
+   },
+   "read:querySelector": {
+    "count": 58,
+    "at": [
+     "content/widget.js:397:4",
+     "content/chatgpt.js:41:21"
+    ]
+   },
+   "read:getAttribute": {
+    "count": 20,
+    "at": [
+     "content/gemini.js:47:21",
+     "content/copilot.js:56:24"
+    ]
+   },
+   "inject:textContent": {
+    "count": 19,
+    "at": [
+     "popup/popup.js:499:2",
+     "settings/settings.js:99:4"
+    ]
+   },
+   "inject:innerHTML": {
+    "count": 15,
+    "at": [
+     "popup/popup.js:188:15",
+     "popup/popup.js:274:2"
+    ]
+   },
+   "inject:dispatchEvent": {
+    "count": 13,
+    "at": [
+     "content/widget.js:577:8",
+     "content/widget.js:615:10"
+    ]
+   },
+   "bare:Event": {
+    "count": 6,
+    "at": [
+     "content/widget.js:570:29",
+     "content/widget.js:585:29"
+    ]
+   },
+   "chrome:runtime/sendMessage": {
+    "count": 4,
+    "at": [
+     "popup/popup.js:831:4",
+     "popup/popup.js:632:4"
+    ]
+   },
+   "bare:KeyboardEvent": {
+    "count": 4,
+    "at": [
+     "content/widget.js:637:25",
+     "content/widget.js:636:25"
+    ]
+   },
+   "inject:execCommand": {
+    "count": 2,
+    "at": [
+     "content/widget.js:612:15",
+     "content/widget.js:573:13"
+    ]
+   },
+   "bare:fetch": {
+    "count": 2,
+    "at": [
+     "utils/summarize.js:95:21",
+     "utils/summarize.js:171:27"
+    ]
+   },
+   "bare:InputEvent": {
+    "count": 2,
+    "at": [
+     "content/widget.js:576:29",
+     "content/widget.js:615:31"
+    ]
+   },
+   "bare:URL": {
+    "count": 2,
+    "at": [
+     "popup/popup.js:453:19",
+     "popup/popup.js:448:15"
+    ]
+   },
+   "inject:setData": {
+    "count": 1,
+    "at": [
+     "content/widget.js:603:6"
+    ]
+   },
+   "inject:innerText": {
+    "count": 1,
+    "at": [
+     "content/widget.js:613:12"
+    ]
+   },
+   "inject:focus": {
+    "count": 1,
+    "at": [
+     "content/widget.js:557:4"
+    ]
+   },
+   "inject:getSelection": {
+    "count": 1,
+    "at": [
+     "content/widget.js:595:18"
+    ]
+   },
+   "chrome:tabs/sendMessage": {
+    "count": 1,
+    "at": [
+     "popup/popup.js:856:4"
+    ]
+   },
+   "chrome:tabs/create": {
+    "count": 1,
+    "at": [
+     "popup/popup.js:443:2"
+    ]
+   },
+   "inject:selectNodeContents": {
+    "count": 1,
+    "at": [
+     "content/widget.js:597:6"
+    ]
+   },
+   "inject:files": {
+    "count": 1,
+    "at": [
+     "popup/popup.js:867:75"
+    ]
+   },
+   "chrome:scripting/executeScript": {
+    "count": 1,
+    "at": [
+     "popup/popup.js:867:8"
+    ]
+   },
+   "read:scrollTop": {
+    "count": 1,
+    "at": [
+     "popup/popup.js:702:4"
+    ]
+   },
+   "storage:storage": {
+    "count": 1,
+    "at": [
+     "export/export.js:141:40"
+    ]
+   },
+   "inject:createRange": {
+    "count": 1,
+    "at": [
+     "content/widget.js:596:20"
+    ]
+   },
+   "bare:Blob": {
+    "count": 1,
+    "at": [
+     "popup/popup.js:447:19"
+    ]
+   },
+   "bare:DataTransfer": {
+    "count": 1,
+    "at": [
+     "content/widget.js:602:21"
+    ]
+   },
+   "bare:ClipboardEvent": {
+    "count": 1,
+    "at": [
+     "content/widget.js:604:27"
+    ]
+   }
+  },
+  "endpoints": [
+   "endpoint"
+  ],
+  "relations": {
+   "aliases": 2732,
+   "reads-property": 866,
+   "reads": 2078,
+   "writes-property": 195,
+   "defines": 1042,
+   "captures": 656,
+   "schedules-timer": 23,
+   "returns-to-call": 253,
+   "argument-to-parameter": 233,
+   "supplies-request-field": 8,
+   "calls": 192,
+   "writes": 60,
+   "creates-promise": 28,
+   "awaits": 50,
+   "detaches-task": 5,
+   "registers-listener": 14,
+   "chains": 5,
+   "returns-task": 8,
+   "cancels-timer": 6,
+   "constructs-request": 2,
+   "destructures": 2,
+   "owns": 3,
+   "consumed-by": 4,
+   "coerces": 5,
+   "spreads": 2
+  },
+  "urlsInSource": [
+   "https://claude.ai/"
+  ],
+  "limitWording": [
+   "popup/popup.js: if (code?.toLowerCase().includes('quota'))     return 'Storage full. Delete old capsules.';",
+   "popup/popup.js: if (code === 'API_RATE_LIMITED')   return 'Rate limited — retry shortly.';",
+   "utils/summarize.js: return { ok: false, error: 'Rate limit hit — API key works but is throttled.' };"
+  ],
+  "injectionMarkers": [
+   "content/widget.js: execCommand('insertText'",
+   "content/widget.js: dispatchEvent(new InputEvent",
+   "content/widget.js: new DataTransfer(",
+   "content/widget.js: dispatchEvent(new ClipboardEvent",
+   "content/widget.js: execCommand('insertText'",
+   "content/widget.js: dispatchEvent(new InputEvent"
+  ],
+  "files": 18
+ },
+ "llmcontextbridge": {
+  "modules": 2,
+  "semNodes": 1833,
+  "unknowns": 641,
+  "limitations": 7,
+  "hits": {
+   "read:querySelectorAll": {
+    "count": 13,
+    "at": [
+     "content.js:163:20",
+     "content.js:121:16"
+    ]
+   },
+   "read:querySelector": {
+    "count": 6,
+    "at": [
+     "content.js:265:17",
+     "content.js:334:16"
+    ]
+   },
+   "inject:execCommand": {
+    "count": 5,
+    "at": [
+     "content.js:407:4",
+     "content.js:302:4"
+    ]
+   },
+   "inject:dispatchEvent": {
+    "count": 5,
+    "at": [
+     "content.js:314:4",
+     "content.js:419:4"
+    ]
+   },
+   "bare:Event": {
+    "count": 5,
+    "at": [
+     "content.js:419:28",
+     "content.js:315:25"
+    ]
+   },
+   "read:getAttribute": {
+    "count": 3,
+    "at": [
+     "content.js:145:44",
+     "content.js:300:30"
+    ]
+   },
+   "inject:innerHTML": {
+    "count": 3,
+    "at": [
+     "content.js:301:4",
+     "content.js:499:2"
+    ]
+   },
+   "inject:focus": {
+    "count": 3,
+    "at": [
+     "content.js:413:6",
+     "content.js:298:2"
+    ]
+   },
+   "read:observe": {
+    "count": 2,
+    "at": [
+     "content.js:327:4",
+     "content.js:628:2"
+    ]
+   },
+   "bare:MutationObserver": {
+    "count": 2,
+    "at": [
+     "content.js:323:25",
+     "content.js:619:26"
+    ]
+   },
+   "inject:activeElement/dispatchEvent": {
+    "count": 1,
+    "at": [
+     "content.js:341:2"
+    ]
+   },
+   "inject:textContent": {
+    "count": 1,
+    "at": [
+     "content.js:105:2"
+    ]
+   },
+   "chrome:tabs/sendMessage": {
+    "count": 1,
+    "at": [
+     "background.js:12:12"
+    ]
+   },
+   "inject:isContentEditable": {
+    "count": 1,
+    "at": [
+     "content.js:300:6"
+    ]
+   },
+   "inject:innerText": {
+    "count": 1,
+    "at": [
+     "content.js:411:16"
+    ]
+   },
+   "chrome:runtime/sendMessage": {
+    "count": 1,
+    "at": [
+     "content.js:566:2"
+    ]
+   },
+   "chrome:tabs/create": {
+    "count": 1,
+    "at": [
+     "background.js:5:4"
+    ]
+   },
+   "bare:KeyboardEvent": {
+    "count": 1,
+    "at": [
+     "content.js:342:8"
+    ]
+   }
+  },
+  "endpoints": [
+   "llmBridgePending"
+  ],
+  "relations": {
+   "aliases": 388,
+   "defines": 180,
+   "reads-property": 133,
+   "reads": 333,
+   "captures": 74,
+   "returns-to-call": 36,
+   "argument-to-parameter": 52,
+   "calls": 39,
+   "schedules-timer": 17,
+   "awaits": 32,
+   "writes": 4,
+   "writes-property": 17,
+   "removes-listener": 1,
+   "creates-promise": 17,
+   "registers-listener": 3,
+   "detaches-task": 1,
+   "returns-task": 1
+  },
+  "urlsInSource": [
+   "https://chatgpt.com/",
+   "https://claude.ai/new",
+   "https://gemini.google.com/app",
+   "https://www.perplexity.ai/",
+   "https://grok.com/"
+  ],
+  "limitWording": [],
+  "injectionMarkers": [
+   "content.js: execCommand('insertText'",
+   "content.js: execCommand('insertText'"
+  ],
+  "files": 2
+ },
+ "clio": {
+  "modules": 22,
+  "semNodes": 32029,
+  "unknowns": 10684,
+  "limitations": 6,
+  "hits": {
+   "read:querySelectorAll": {
+    "count": 55,
+    "at": [
+     "src/content.js:2243:30",
+     "src/content.js:2593:8"
+    ]
+   },
+   "inject:textContent": {
+    "count": 37,
+    "at": [
+     "src/popup.js:243:2",
+     "src/popup.js:139:4"
+    ]
+   },
+   "read:querySelector": {
+    "count": 33,
+    "at": [
+     "src/content.js:2819:24",
+     "src/content.js:2747:24"
+    ]
+   },
+   "read:getAttribute": {
+    "count": 27,
+    "at": [
+     "src/content.js:654:17",
+     "src/content.js:838:19"
+    ]
+   },
+   "read:scrollTop": {
+    "count": 13,
+    "at": [
+     "src/content.js:1493:22",
+     "src/content.js:1656:31"
+    ]
+   },
+   "bare:URL": {
+    "count": 7,
+    "at": [
+     "src/popup.js:364:21",
+     "src/archive.js:145:23"
+    ]
+   },
+   "chrome:scripting/executeScript": {
+    "count": 6,
+    "at": [
+     "src/archive-page.js:99:8",
+     "src/popup.js:461:30"
+    ]
+   },
+   "inject:files": {
+    "count": 5,
+    "at": [
+     "lib/jszip.min.js:13:15703",
+     "lib/jszip.min.js:13:11739"
+    ]
+   },
+   "bare:Blob": {
+    "count": 5,
+    "at": [
+     "src/content.js:3205:23",
+     "lib/jszip.min.js:13:28591"
+    ]
+   },
+   "bare:fetch": {
+    "count": 5,
+    "at": [
+     "src/content.js:2365:29",
+     "src/content.js:3137:27"
+    ]
+   },
+   "read:observe": {
+    "count": 3,
+    "at": [
+     "lib/jszip.min.js:13:46527",
+     "src/content.js:3070:2"
+    ]
+   },
+   "inject:dispatchEvent": {
+    "count": 3,
+    "at": [
+     "src/content.js:1610:6",
+     "src/content.js:1464:4"
+    ]
+   },
+   "bare:MutationObserver": {
+    "count": 3,
+    "at": [
+     "src/content.js:1525:23",
+     "src/content.js:3062:23"
+    ]
+   },
+   "bare:FileReader": {
+    "count": 3,
+    "at": [
+     "lib/jszip.min.js:13:35514",
+     "lib/jszip.min.js:13:35465"
+    ]
+   },
+   "inject:innerHTML": {
+    "count": 2,
+    "at": [
+     "src/recorder.js:53:2",
+     "src/archive-page.js:54:2"
+    ]
+   },
+   "chrome:tabs/create": {
+    "count": 2,
+    "at": [
+     "src/popup.js:655:6",
+     "src/archive-page.js:79:20"
+    ]
+   },
+   "read:scrollTo": {
+    "count": 2,
+    "at": [
+     "src/recorder.js:76:8",
+     "src/recorder.js:82:6"
+    ]
+   },
+   "chrome:tabs/sendMessage": {
+    "count": 2,
+    "at": [
+     "src/archive.js:73:4",
+     "src/popup.js:429:4"
+    ]
+   },
+   "read:target/getAttribute": {
+    "count": 2,
+    "at": [
+     "src/content.js:3064:32",
+     "src/content.js:3064:59"
+    ]
+   },
+   "bare:Event": {
+    "count": 2,
+    "at": [
+     "src/content.js:1610:40",
+     "src/content.js:1464:25"
+    ]
+   },
+   "inject:innerText": {
+    "count": 1,
+    "at": [
+     "src/content.js:1202:19"
+    ]
+   },
+   "chrome:create": {
+    "count": 1,
+    "at": [
+     "lib/jszip.min.js:13:10438"
+    ]
+   },
+   "read:MutationObserver": {
+    "count": 1,
+    "at": [
+     "lib/jszip.min.js:13:46425"
+    ]
+   },
+   "bare:KeyboardEvent": {
+    "count": 1,
+    "at": [
+     "src/recorder.js:156:33"
+    ]
+   }
+  },
+  "endpoints": [
+   "src",
+   "url",
+   "account",
+   "site",
+   "u"
+  ],
+  "relations": {
+   "aliases": 28662,
+   "reads": 9591,
+   "writes": 1222,
+   "captures": 1754,
+   "defines": 4290,
+   "writes-property": 1073,
+   "reads-property": 2666,
+   "returns-to-call": 735,
+   "calls": 682,
+   "argument-to-parameter": 467,
+   "awaits": 103,
+   "detaches-task": 4,
+   "spreads": 7,
+   "creates-promise": 30,
+   "coerces": 12,
+   "constructs-request": 4,
+   "supplies-request-field": 4,
+   "schedules-timer": 15,
+   "owns": 1,
+   "returns-task": 12,
+   "parses": 2,
+   "registers-listener": 6,
+   "removes-listener": 3,
+   "chains": 3,
+   "cancels-timer": 1,
+   "destructures": 6,
+   "consumed-by": 1
+  },
+  "urlsInSource": [
+   "http://stuartk.com/jszip",
+   "https://raw.github.com/Stuk/jszip/main/LICENSE.markdown.",
+   "https://github.com/nodeca/pako/blob/main/LICENSE",
+   "https://stuk.github.io/jszip/documentation/howto/read_zip.html",
+   "https://claude.ai/",
+   "https://gemini.google.com/app",
+   "https://chatgpt.com/",
+   "https://www.google.com/s2/favicons?domain=",
+   "https://t*.gstatic.com/faviconV2?url=",
+   "https://claude.ai/chat/$",
+   "https://gemini.google.com/app/$"
+  ],
+  "limitWording": [],
+  "injectionMarkers": [],
+  "files": 12
+ },
+ "gemini-export": {
+  "modules": 45,
+  "semNodes": 35573,
+  "unknowns": 11792,
+  "limitations": 6,
+  "hits": {
+   "read:querySelector": {
+    "count": 38,
+    "at": [
+     "src/content/modules/conversation_extractor.js:146:37",
+     "src/content/modules/conversation_extractor.js:231:44"
+    ]
+   },
+   "inject:textContent": {
+    "count": 19,
+    "at": [
+     "src/lib/turndown.min.js:1:7264",
+     "src/popup/popup.js:139:2"
+    ]
+   },
+   "read:querySelectorAll": {
+    "count": 19,
+    "at": [
+     "src/content/modules/anchor_panel.js:276:45",
+     "src/content/modules/scroller.js:186:16"
+    ]
+   },
+   "bare:Blob": {
+    "count": 18,
+    "at": [
+     "src/content/modules/export_pipeline.js:191:26",
+     "src/content/modules/export_pipeline.js:238:30"
+    ]
+   },
+   "read:getAttribute": {
+    "count": 17,
+    "at": [
+     "src/lib/turndown.min.js:1:3942",
+     "src/lib/turndown.min.js:1:5058"
+    ]
+   },
+   "bare:URL": {
+    "count": 11,
+    "at": [
+     "src/background/service_worker.js:175:27",
+     "src/content/modules/image_exporter.js:108:38"
+    ]
+   },
+   "inject:innerText": {
+    "count": 8,
+    "at": [
+     "src/content/modules/conversation_extractor.js:34:22",
+     "src/content/modules/export_pipeline.js:81:59"
+    ]
+   },
+   "chrome:runtime/sendMessage": {
+    "count": 5,
+    "at": [
+     "src/content/modules/image_exporter.js:19:20",
+     "src/background/service_worker.js:58:12"
+    ]
+   },
+   "inject:files": {
+    "count": 5,
+    "at": [
+     "src/lib/jszip.min.js:13:11739",
+     "src/lib/jszip.min.js:13:11871"
+    ]
+   },
+   "inject:innerHTML": {
+    "count": 4,
+    "at": [
+     "src/content/modules/anchor_panel.js:517:12",
+     "src/content/modules/ui_controller.js:42:12"
+    ]
+   },
+   "read:observe": {
+    "count": 4,
+    "at": [
+     "src/content/modules/anchor_panel.js:497:16",
+     "src/lib/jszip.min.js:13:46527"
+    ]
+   },
+   "read:scrollTo": {
+    "count": 4,
+    "at": [
+     "src/content/modules/export_handlers.js:96:16",
+     "src/content/modules/export_handlers.js:98:16"
+    ]
+   },
+   "bare:fetch": {
+    "count": 3,
+    "at": [
+     "src/background/service_worker.js:235:35",
+     "src/background/service_worker.js:252:35"
+    ]
+   },
+   "chrome:tabs/sendMessage": {
+    "count": 2,
+    "at": [
+     "src/background/service_worker.js:125:31",
+     "src/background/service_worker.js:39:35"
+    ]
+   },
+   "read:node/scrollIntoView": {
+    "count": 2,
+    "at": [
+     "src/content/modules/anchor_panel.js:424:16",
+     "src/content/modules/anchor_panel.js:426:16"
+    ]
+   },
+   "inject:firstChild/textContent": {
+    "count": 2,
+    "at": [
+     "src/lib/turndown-plugin-gfm.min.js:23:8",
+     "src/lib/turndown.min.js:1:3284"
+    ]
+   },
+   "bare:FileReader": {
+    "count": 2,
+    "at": [
+     "src/lib/jszip.min.js:13:35514",
+     "src/lib/jszip.min.js:13:35465"
+    ]
+   },
+   "bare:MutationObserver": {
+    "count": 2,
+    "at": [
+     "src/content/modules/anchor_panel.js:494:33",
+     "src/content/modules/theme_sync.js:122:32"
+    ]
+   },
+   "read:MutationObserver": {
+    "count": 1,
+    "at": [
+     "src/lib/jszip.min.js:13:46425"
+    ]
+   },
+   "storage:storage": {
+    "count": 1,
+    "at": [
+     "src/content/modules/export_dispatcher.js:34:30"
+    ]
+   },
+   "chrome:create": {
+    "count": 1,
+    "at": [
+     "src/lib/jszip.min.js:13:10438"
+    ]
+   },
+   "chrome:tabs/create": {
+    "count": 1,
+    "at": [
+     "src/background/service_worker.js:53:33"
+    ]
+   },
+   "storage:storage/local": {
+    "count": 1,
+    "at": [
+     "src/content/modules/export_dispatcher.js:34:48"
+    ]
+   },
+   "read:firstChild/getAttribute": {
+    "count": 1,
+    "at": [
+     "src/lib/turndown.min.js:1:3203"
+    ]
+   },
+   "read:scrollTop": {
+    "count": 1,
+    "at": [
+     "src/content/modules/scroll_engine.js:68:75"
+    ]
+   }
+  },
+  "endpoints": [
+   "imageUrl",
+   "assetUrl"
+  ],
+  "relations": {
+   "reads": 10456,
+   "aliases": 30284,
+   "writes": 1357,
+   "reads-property": 3034,
+   "captures": 2222,
+   "argument-to-parameter": 366,
+   "defines": 4805,
+   "writes-property": 1154,
+   "calls": 756,
+   "returns-to-call": 704,
+   "coerces": 52,
+   "awaits": 47,
+   "schedules-timer": 5,
+   "creates-promise": 11,
+   "registers-listener": 4,
+   "detaches-task": 2,
+   "supplies-request-field": 5,
+   "returns-task": 6,
+   "constructs-request": 3,
+   "spreads": 9,
+   "parses": 2,
+   "removes-listener": 1,
+   "destructures": 1,
+   "chains": 2
+  },
+  "urlsInSource": [
+   "http://stuartk.com/jszip",
+   "https://raw.github.com/Stuk/jszip/main/LICENSE.markdown.",
+   "https://github.com/nodeca/pako/blob/main/LICENSE",
+   "https://stuk.github.io/jszip/documentation/howto/read_zip.html",
+   "https://chatgpt.com/c/698aae14-759c-83ab-8121-fca8ac11d582').id",
+   "https://gemini.google.com/app/abc').id",
+   "https://aistudio.google.com/prompts/new_chat').id"
+  ],
+  "limitWording": [],
+  "injectionMarkers": [],
+  "files": 25
+ },
+ "ai-chat-exporter": {
+  "modules": 5,
+  "semNodes": 7851,
+  "unknowns": 2676,
+  "limitations": 6,
+  "hits": {
+   "read:querySelectorAll": {
+    "count": 40,
+    "at": [
+     "src/content_scripts/gemini.js:483:6",
+     "src/content_scripts/chatgpt.js:171:10"
+    ]
+   },
+   "read:querySelector": {
+    "count": 38,
+    "at": [
+     "src/content_scripts/gemini_old.js:138:30",
+     "src/content_scripts/gemini_old.js:316:30"
+    ]
+   },
+   "read:dropdown/querySelector": {
+    "count": 17,
+    "at": [
+     "src/content_scripts/gemini_old.js:596:27",
+     "src/content_scripts/gemini_old.js:598:12"
+    ]
+   },
+   "inject:textContent": {
+    "count": 17,
+    "at": [
+     "src/content_scripts/gemini.js:590:6",
+     "src/content_scripts/gemini.js:113:6"
+    ]
+   },
+   "read:getAttribute": {
+    "count": 16,
+    "at": [
+     "src/content_scripts/gemini.js:667:20",
+     "src/lib/turndown.js:235:17"
+    ]
+   },
+   "inject:button/textContent": {
+    "count": 6,
+    "at": [
+     "src/content_scripts/chatgpt.js:539:6",
+     "src/content_scripts/gemini.js:959:8"
+    ]
+   },
+   "read:scrollTop": {
+    "count": 6,
+    "at": [
+     "src/content_scripts/chatgpt.js:328:27",
+     "src/content_scripts/gemini_old.js:328:8"
+    ]
+   },
+   "inject:innerHTML": {
+    "count": 6,
+    "at": [
+     "src/content_scripts/gemini_old.js:302:6",
+     "src/content_scripts/gemini.js:634:6"
+    ]
+   },
+   "bare:URL": {
+    "count": 6,
+    "at": [
+     "src/content_scripts/gemini.js:211:8",
+     "src/content_scripts/gemini_old.js:469:8"
+    ]
+   },
+   "read:dropdown/querySelectorAll": {
+    "count": 3,
+    "at": [
+     "src/content_scripts/gemini_old.js:544:6",
+     "src/content_scripts/gemini.js:885:6"
+    ]
+   },
+   "storage:storage/sync": {
+    "count": 3,
+    "at": [
+     "src/content_scripts/chatgpt.js:565:14",
+     "src/content_scripts/gemini.js:966:14"
+    ]
+   },
+   "read:observe": {
+    "count": 3,
+    "at": [
+     "src/content_scripts/gemini.js:979:6",
+     "src/content_scripts/chatgpt.js:578:6"
+    ]
+   },
+   "bare:Blob": {
+    "count": 3,
+    "at": [
+     "src/content_scripts/gemini.js:202:23",
+     "src/content_scripts/chatgpt.js:433:23"
+    ]
+   },
+   "bare:MutationObserver": {
+    "count": 3,
+    "at": [
+     "src/content_scripts/chatgpt.js:577:27",
+     "src/content_scripts/gemini.js:978:27"
+    ]
+   },
+   "inject:dispatchEvent": {
+    "count": 2,
+    "at": [
+     "src/content_scripts/gemini_old.js:427:12",
+     "src/content_scripts/gemini_old.js:358:10"
+    ]
+   },
+   "chrome:create": {
+    "count": 2,
+    "at": [
+     "src/content_scripts/chatgpt.js:141:10",
+     "src/content_scripts/chatgpt.js:146:10"
+    ]
+   },
+   "inject:firstChild/textContent": {
+    "count": 1,
+    "at": [
+     "src/lib/turndown.js:194:17"
+    ]
+   },
+   "read:firstChild/getAttribute": {
+    "count": 1,
+    "at": [
+     "src/lib/turndown.js:192:22"
+    ]
+   }
+  },
+  "endpoints": [],
+  "relations": {
+   "aliases": 1477,
+   "reads": 1558,
+   "returns-to-call": 168,
+   "captures": 371,
+   "reads-property": 701,
+   "schedules-timer": 9,
+   "writes-property": 202,
+   "writes": 90,
+   "defines": 864,
+   "calls": 109,
+   "awaits": 30,
+   "argument-to-parameter": 108,
+   "registers-listener": 3,
+   "creates-promise": 3,
+   "coerces": 2,
+   "returns-task": 3
+  },
+  "urlsInSource": [
+   "https://gist.github.com/1129031"
+  ],
+  "limitWording": [],
+  "injectionMarkers": [],
+  "files": 5
+ },
+ "aicontextcapsule-repo": {
+  "modules": 39,
+  "semNodes": 11220,
+  "unknowns": 3930,
+  "limitations": 8,
+  "hits": {
+   "read:querySelectorAll": {
+    "count": 63,
+    "at": [
+     "capsule-extension/content/grok.js:37:8",
+     "capsule-extension/settings/settings.js:22:2"
+    ]
+   },
+   "read:querySelector": {
+    "count": 59,
+    "at": [
+     "capsule-extension/content/widget.js:703:11",
+     "capsule-extension/content/grok.js:75:17"
+    ]
+   },
+   "read:getAttribute": {
+    "count": 20,
+    "at": [
+     "capsule-extension/content/grok.js:34:21",
+     "capsule-extension/content/gemini.js:47:21"
+    ]
+   },
+   "inject:textContent": {
+    "count": 20,
+    "at": [
+     "capsule-extension/popup/popup.js:769:36",
+     "capsule-extension/popup/popup.js:792:2"
+    ]
+   },
+   "inject:innerHTML": {
+    "count": 15,
+    "at": [
+     "capsule-extension/popup/popup.js:274:2",
+     "capsule-extension/content/widget.js:451:4"
+    ]
+   },
+   "inject:dispatchEvent": {
+    "count": 13,
+    "at": [
+     "capsule-extension/content/widget.js:577:8",
+     "capsule-extension/content/widget.js:569:8"
+    ]
+   },
+   "bare:Event": {
+    "count": 6,
+    "at": [
+     "capsule-extension/content/widget.js:569:29",
+     "capsule-extension/content/widget.js:577:29"
+    ]
+   },
+   "chrome:runtime/sendMessage": {
+    "count": 4,
+    "at": [
+     "capsule-extension/popup/popup.js:632:4",
+     "capsule-extension/content/widget.js:24:2"
+    ]
+   },
+   "bare:KeyboardEvent": {
+    "count": 4,
+    "at": [
+     "capsule-extension/content/widget.js:636:25",
+     "capsule-extension/content/widget.js:637:25"
+    ]
+   },
+   "inject:execCommand": {
+    "count": 2,
+    "at": [
+     "capsule-extension/content/widget.js:612:15",
+     "capsule-extension/content/widget.js:573:13"
+    ]
+   },
+   "inject:innerText": {
+    "count": 2,
+    "at": [
+     "selector-health-check.js:161:31",
+     "capsule-extension/content/widget.js:613:12"
+    ]
+   },
+   "bare:InputEvent": {
+    "count": 2,
+    "at": [
+     "capsule-extension/content/widget.js:576:29",
+     "capsule-extension/content/widget.js:615:31"
+    ]
+   },
+   "bare:fetch": {
+    "count": 2,
+    "at": [
+     "capsule-extension/utils/summarize.js:95:21",
+     "capsule-extension/utils/summarize.js:171:27"
+    ]
+   },
+   "bare:URL": {
+    "count": 2,
+    "at": [
+     "capsule-extension/popup/popup.js:453:19",
+     "capsule-extension/popup/popup.js:448:15"
+    ]
+   },
+   "inject:files": {
+    "count": 1,
+    "at": [
+     "capsule-extension/popup/popup.js:867:75"
+    ]
+   },
+   "inject:getSelection": {
+    "count": 1,
+    "at": [
+     "capsule-extension/content/widget.js:595:18"
+    ]
+   },
+   "read:scrollTop": {
+    "count": 1,
+    "at": [
+     "capsule-extension/popup/popup.js:702:4"
+    ]
+   },
+   "inject:focus": {
+    "count": 1,
+    "at": [
+     "capsule-extension/content/widget.js:557:4"
+    ]
+   },
+   "inject:createRange": {
+    "count": 1,
+    "at": [
+     "capsule-extension/content/widget.js:596:20"
+    ]
+   },
+   "storage:storage": {
+    "count": 1,
+    "at": [
+     "capsule-extension/export/export.js:141:40"
+    ]
+   },
+   "inject:setData": {
+    "count": 1,
+    "at": [
+     "capsule-extension/content/widget.js:603:6"
+    ]
+   },
+   "chrome:tabs/create": {
+    "count": 1,
+    "at": [
+     "capsule-extension/popup/popup.js:443:2"
+    ]
+   },
+   "chrome:tabs/sendMessage": {
+    "count": 1,
+    "at": [
+     "capsule-extension/popup/popup.js:856:4"
+    ]
+   },
+   "chrome:scripting/executeScript": {
+    "count": 1,
+    "at": [
+     "capsule-extension/popup/popup.js:867:8"
+    ]
+   },
+   "inject:selectNodeContents": {
+    "count": 1,
+    "at": [
+     "capsule-extension/content/widget.js:597:6"
+    ]
+   },
+   "bare:DataTransfer": {
+    "count": 1,
+    "at": [
+     "capsule-extension/content/widget.js:602:21"
+    ]
+   },
+   "bare:ClipboardEvent": {
+    "count": 1,
+    "at": [
+     "capsule-extension/content/widget.js:604:27"
+    ]
+   },
+   "bare:Blob": {
+    "count": 1,
+    "at": [
+     "capsule-extension/popup/popup.js:447:19"
+    ]
+   }
+  },
+  "endpoints": [
+   "endpoint"
+  ],
+  "relations": {
+   "reads": 2232,
+   "aliases": 2893,
+   "captures": 680,
+   "calls": 218,
+   "defines": 1099,
+   "returns-to-call": 265,
+   "argument-to-parameter": 283,
+   "reads-property": 955,
+   "writes-property": 195,
+   "writes": 60,
+   "returns-task": 9,
+   "awaits": 94,
+   "detaches-task": 6,
+   "cancels-timer": 6,
+   "schedules-timer": 23,
+   "creates-promise": 30,
+   "constructs-request": 2,
+   "chains": 5,
+   "coerces": 5,
+   "registers-listener": 14,
+   "supplies-request-field": 8,
+   "spreads": 2,
+   "owns": 3,
+   "consumed-by": 4,
+   "destructures": 2
+  },
+  "urlsInSource": [
+   "https://claude.ai/",
+   "https://chatgpt.com",
+   "https://claude.ai",
+   "https://claude.ai/new"
+  ],
+  "limitWording": [
+   "capsule-extension/popup/popup.js: if (code?.toLowerCase().includes('quota'))     return 'Storage full. Delete old capsules.';",
+   "capsule-extension/popup/popup.js: if (code === 'API_RATE_LIMITED')   return 'Rate limited — retry shortly.';",
+   "capsule-extension/utils/summarize.js: return { ok: false, error: 'Rate limit hit — API key works but is throttled.' };"
+  ],
+  "injectionMarkers": [
+   "capsule-extension/content/widget.js: execCommand('insertText'",
+   "capsule-extension/content/widget.js: dispatchEvent(new InputEvent",
+   "capsule-extension/content/widget.js: new DataTransfer(",
+   "capsule-extension/content/widget.js: dispatchEvent(new ClipboardEvent",
+   "capsule-extension/content/widget.js: execCommand('insertText'",
+   "capsule-extension/content/widget.js: dispatchEvent(new InputEvent"
+  ],
+  "files": 19
+ }
+}

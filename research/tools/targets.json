@@ -1,0 +1,12 @@
+{
+  "dropdat": "downloads/dropdat/x",
+  "contextswitch": "downloads/contextswitch/x",
+  "capsulehub": "downloads/capsulehub/x",
+  "contextcapsule": "downloads/contextcapsule/x",
+  "aicontextsaver": "downloads/aicontextsaver/x",
+  "llmcontextbridge": "downloads/llmcontextbridge/x",
+  "clio": "repos/Clio/extensions",
+  "gemini-export": "repos/gemini-export",
+  "ai-chat-exporter": "repos/ai-chat-exporter",
+  "aicontextcapsule-repo": "repos/AIContextCapsule"
+}

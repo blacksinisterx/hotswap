@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.log
+research/downloads/
+research/repos/
+research/rea-raw/*.json
+!research/rea-raw/*.meta.json
+HANDOFF.md
+*.hotswap.md

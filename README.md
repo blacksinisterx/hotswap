@@ -1,0 +1,81 @@
+# Hotswap
+
+**Hit your AI's limit in the middle of a critical task? Switch to another AI without losing the thread.**
+
+Hotswap turns a Claude Code or Antigravity session into a *capsule*: one Markdown file with the goal, the open tasks, the files and commands, the last turns word for word, and every code block exactly as written. Hand it to any AI and it can carry on from where you stopped.
+
+- **No AI model, no server, no account.** Everything is plain code running on your computer. Nothing is uploaded.
+- **Limit-aware.** For Claude Code it notices the moment the plan limit is hit and has a capsule ready.
+- **Checkable.** Every capsule ends with a fidelity report and a hash, and `hotswap check` tells you if the file was changed.
+- **Secrets are removed first.** If that step fails, nothing is written.
+
+This is the local half (v0.1). The browser extension for web chats (ChatGPT, Claude, Gemini) is planned next; see [PLAN.md](PLAN.md).
+
+## Quick start
+
+Needs Node 20 or newer.
+
+```
+npm install
+npm run build
+node dist/cli.js doctor          # what Hotswap can see on this machine
+```
+
+(`npm link` makes the command `hotswap` available everywhere.)
+
+```
+hotswap list                                   # recent sessions, Claude Code and Antigravity
+hotswap to claude                              # newest session -> HANDOFF.md in its folder, and the command to start Claude
+hotswap to web                                 # same, for pasting into ChatGPT / Gemini / Claude.ai
+hotswap capture --from antigravity --preset full --out my.hotswap.md
+hotswap watch                                  # Claude Code limit watcher: capsule appears when the limit is hit
+hotswap watch --once                           # is the newest session stuck on a limit right now?
+hotswap check my.hotswap.md                    # exactly as Hotswap wrote it?
+```
+
+Choose a session with `--id` (start of the id), `--project DIR`, or `--from claude|antigravity`. Presets decide how many recent turns travel word for word: `minimal` (3), `standard` (10, default), `verbose` (20), `full` (all).
+
+`HANDOFF.md` can contain text from your project. Hotswap redacts keys and tokens, but read it before you share or commit it.
+
+## What is in a capsule
+
+| Part | Content |
+|---|---|
+| State card | Goal (first request), latest request, working folder and git branch, open tasks, files changed, last commands with ok/failed, last error, and why you are switching (only if a limit notice is the last thing in the session) |
+| Recent conversation | The last N turns, quoted with `> ` so headings or code inside them cannot be mistaken for the capsule's own structure. Remove the `> ` to get the exact text |
+| Code vault | The newest version of each code block (same language and first line), exact, with its sha256 |
+| Tool notes | Antigravity's own `task.md`, `implementation_plan.md`, `walkthrough.md` |
+| Fidelity report | Tier, turns read and included, code blocks found and kept, secrets removed (counts only), and every known loss |
+
+**Tiers, stated honestly:** *verbatim* (preset `full`, nothing cut), *hybrid* (state card, recent turns and code exact; older turns covered by the state card only), *partial* (the source tool itself keeps only part of the conversation). Antigravity is always partial. Hidden reasoning is never exported.
+
+## How it reads your tools (verified on a real machine)
+
+| Tool | Reads | Notes |
+|---|---|---|
+| **Claude Code** | `~/.claude/projects/<project>/<session>.jsonl` | Full turns, tool calls and results, files touched, to-do list, working folder, git branch, title. Sub-agent files are left out. |
+| **Antigravity** | `~/.gemini/antigravity/brain/<id>/.system_generated/logs/overview.txt` (JSON Lines) and the three notes files | Antigravity itself cuts each message at about 1,000 characters in this log and marks some steps as cleared, so capsules say *partial*. It **never opens** `conversations/*.pb` (not readable outside the app) or `state.vscdb` (it holds sign-in data). |
+
+Override the folders with `HOTSWAP_CLAUDE_DIR` and `HOTSWAP_ANTIGRAVITY_DIR`.
+
+## The limit watcher
+
+When Claude Code hits a plan limit it writes a line to the session file with `isApiErrorMessage: true`, `error: "rate_limit"`, HTTP 429, and the text `You've hit your session limit · resets 11:40am (Asia/Karachi)`. Other API errors (overloaded, auth, network) use other values and are ignored. `hotswap watch` reads only what is appended after it started, builds the capsule when that line appears, writes `HANDOFF.md`, and prints the reset time and the command to start the next AI. It never sends anything on its own.
+
+## Measured
+
+- 27 tests (`npm test`, Node 22.18 or newer runs the TypeScript directly; `npm run build` produces JavaScript for Node 20+). They use small invented sessions in the real file shapes, never real conversations.
+- On the author's machine, `hotswap capture` read a 238 MB Claude Code session of 1,102 turns and wrote a 41 KB capsule in 2.9 seconds. The redactor removed 5 items from that capture (1 token-shaped string and 4 secret-looking environment lines); in the tests, planted fake secrets of eight kinds are all caught.
+- Of the 43 Claude Code sessions on that machine, 13 contained a limit line (87 in total); the detector rule was checked against those shapes.
+
+## Limits (read these)
+
+- A capsule carries the **visible conversation and working state**, not the AI's hidden memory. The new AI will not behave identically.
+- Antigravity is partial, as above. Images and documents attached in Claude Code cannot travel; they are listed by position.
+- Start commands for Codex, Gemini CLI, Cursor and Antigravity are best-known forms and are marked *not verified*; `claude "..."` and the web flow are the verified ones.
+- Web chat limit detection is not built yet: no tool read so far knows the wording of those limit screens. See [research/RESEARCH.md](research/RESEARCH.md).
+- Capsules have not been tried with other people yet.
+
+## More
+
+[PLAN.md](PLAN.md) (what is next) · [PHASE0.md](PHASE0.md) (what is on a real machine) · [research/RESEARCH.md](research/RESEARCH.md) (what existing tools really do, read with REA) · MIT licence.

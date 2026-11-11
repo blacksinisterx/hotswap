@@ -1,0 +1,20 @@
+{
+  "name": "hotswap",
+  "version": "0.1.0",
+  "description": "Switch AI mid-task without losing the thread: turn a Claude Code or Antigravity session into a capsule another AI can continue from. No LLM, no server, no account.",
+  "type": "module",
+  "license": "MIT",
+  "bin": { "hotswap": "dist/cli.js" },
+  "engines": { "node": ">=20" },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "node --test \"test/*.test.ts\"",
+    "start": "node src/cli.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "~5.8.3"
+  }
+}
