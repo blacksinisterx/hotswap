@@ -114,7 +114,7 @@ MIT (Clio, gemini-export, cli-continues) and Apache-2.0 (ai-chat-exporter): adap
 |---|---|---|
 | ~~R. Research with REA~~ | done | `RESEARCH.md` |
 | ~~0. Local spike~~ | done | `PHASE0.md` |
-| **1. Core + local flow** | 3 to 4 | Capsule schema, redactor, builder, **Claude Code reader**, **Antigravity reader (Partial)**, `hotswap to <claude|codex|gemini>` writing `HANDOFF.md`, **Claude Code Limit Watcher**. Tests on sanitised copies of real sessions. |
+| ~~1. Core + local flow~~ | **done (v0.1)** | Capsule schema, redactor, builder, **Claude Code reader**, **Antigravity reader (Partial)**, `hotswap to <claude|codex|gemini>` writing `HANDOFF.md`, **Claude Code Limit Watcher**. Tests on sanitised copies of real sessions. |
 | **2. Chrome extension** | 4 to 5 | ChatGPT, Claude, Gemini readers (Clio-style, new ChatGPT markup), capsule chip, drag to composer, right-click, injection ladder, fixtures and self-tests. |
 | **0b. Probe mode (inside phase 2)** | 1 | A debug panel that records which injection step worked per site and saves the text of any limit banner you hit, so the unknowns above are settled from your real use and the results can be shared. |
 | **3. Web Limit Watcher + bridge** | 2 to 3 | Rules from real limit screens, Native Messaging so the extension reads local sessions, "Switch?" prompt. |
@@ -135,5 +135,5 @@ Round trip on fixtures (message counts equal, code-block hashes identical); adap
 6. No-LLM capsules are less "smart": answered by verbatim tail, code vault, user pins.
 7. Site terms of service; Chrome Web Store not used (no fee), so distribution is GitHub only.
 
-## 13. Next step
-Phase 1 (core + local flow). Nothing is built yet; it starts when you say so.
+## 13. Status and next step
+**Phase 1 is built (v0.1)**: see README.md. 27 tests pass; verified on this PC's real Claude Code and Antigravity sessions. The Claude Code Limit Watcher works from the real limit line. **Next: Phase 2, the Chrome extension** (web chats, capsule chip, drag to composer, right-click, probe mode), which starts when you say so.
