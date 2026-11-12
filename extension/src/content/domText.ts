@@ -14,7 +14,7 @@ export function languageOf(pre: Element): string {
   const cls = `${code?.className ?? ''} ${pre.className ?? ''}`;
   const m = /(?:language|lang)-([\w+#.-]+)/i.exec(cls);
   if (m) return m[1].toLowerCase();
-  const data = pre.closest('[data-language]')?.getAttribute('data-language') ?? code?.getAttribute('data-language');
+  const data = pre.closest('[data-language]')?.getAttribute('data-language') ?? code?.getAttribute('data-language') ?? code?.getAttribute('data-code-language');
   if (data) return data.toLowerCase();
   // some pages put the language in a small label just above the code
   const prev = pre.previousElementSibling ?? pre.parentElement?.previousElementSibling;

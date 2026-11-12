@@ -1,6 +1,6 @@
 """Turns docs/media/raw/chrome.webm into hotswap-chrome-demo.mp4, .gif and a poster PNG, and adds the captions under the
 video (a bar below the page, so the page itself stays untouched). Captions come from raw/chrome.captions.json.
-Usage: python -I launch/extension-demo/compose.py [poster_second]   (needs: pip install imageio-ffmpeg; uses the Segoe UI font on Windows)"""
+Usage: python -I launch/extension-demo/compose.py [chrome|real] [poster_second]   (needs: pip install imageio-ffmpeg; uses the Segoe UI font on Windows)"""
 import json
 import os
 import re
@@ -14,7 +14,8 @@ FF = imageio_ffmpeg.get_ffmpeg_exe()
 HERE = os.path.dirname(os.path.abspath(__file__))
 MEDIA = os.path.join(HERE, '..', '..', 'docs', 'media')
 RAW = os.path.join(MEDIA, 'raw')
-SRC = os.path.join(RAW, 'chrome.webm')
+NAME = sys.argv[1] if len(sys.argv) > 1 else 'chrome'
+SRC = os.path.join(RAW, f'{NAME}.webm')
 FONT = 'C\\:/Windows/Fonts/segoeuib.ttf'
 BAR = 84
 
@@ -26,7 +27,7 @@ def probe_duration(path):
 
 
 duration = probe_duration(SRC)
-caps = json.load(open(os.path.join(RAW, 'chrome.captions.json'), encoding='utf8'))
+caps = json.load(open(os.path.join(RAW, f'{NAME}.captions.json'), encoding='utf8'))
 OFFSET = 0.5  # the recording starts a moment before the first caption is logged
 
 work = tempfile.mkdtemp(prefix='hotswap-compose-')
@@ -44,10 +45,10 @@ def run(args):
     subprocess.run([FF, '-y', *args], check=True, capture_output=True, cwd=work)
 
 
-mp4 = os.path.abspath(os.path.join(MEDIA, 'hotswap-chrome-demo.mp4'))
+mp4 = os.path.abspath(os.path.join(MEDIA, f'hotswap-{NAME}-demo.mp4'))
 run(['-i', SRC, '-vf', chain, '-r', '30', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '22', '-preset', 'slow', '-movflags', '+faststart', mp4])
 
-gif = os.path.abspath(os.path.join(MEDIA, 'hotswap-chrome-demo.gif'))
+gif = os.path.abspath(os.path.join(MEDIA, f'hotswap-{NAME}-demo.gif'))
 for fps, w, colors in [(10, 900, 96), (8, 800, 64), (8, 720, 48), (6, 640, 32)]:
     graph = (f'fps={fps},scale={w}:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors={colors}:stats_mode=diff[p];'
              '[b][p]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle')
@@ -57,6 +58,6 @@ for fps, w, colors in [(10, 900, 96), (8, 800, 64), (8, 720, 48), (6, 640, 32)]:
     if size <= 6e6:
         break
 
-poster = os.path.abspath(os.path.join(MEDIA, 'hotswap-chrome-poster.png'))
-run(['-ss', sys.argv[1] if len(sys.argv) > 1 else '9', '-i', mp4, '-frames:v', '1', poster])
+poster = os.path.abspath(os.path.join(MEDIA, f'hotswap-{NAME}-poster.png'))
+run(['-ss', sys.argv[2] if len(sys.argv) > 2 else '9', '-i', mp4, '-frames:v', '1', poster])
 print(f'duration {probe_duration(mp4):.1f}s | mp4 {os.path.getsize(mp4) / 1e6:.2f} MB')

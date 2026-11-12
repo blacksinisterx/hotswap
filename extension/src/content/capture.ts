@@ -35,7 +35,9 @@ export async function captureMessages(adapter: Adapter, doc: Document, opts: Cap
     return fresh;
   };
 
-  const scroller = adapter.scroller(doc);
+  // some pages (the logged-out ChatGPT page, checked live) scroll the whole document instead of an inner box
+  const scroller = adapter.scroller(doc) ?? (doc.scrollingElement as HTMLElement | null);
+  const fire = (): void => { (scroller === doc.scrollingElement ? (doc.defaultView ?? scroller) : scroller)?.dispatchEvent(new Event('scroll')); };
   const flags: CaptureFlags = { reachedTop: 'unknown', reachedBottom: 'unknown', steps: 0, stoppedBecause: 'the page was read as it was', streaming: adapter.streaming(doc) };
   collect();
   if (!scroller) {
@@ -49,7 +51,7 @@ export async function captureMessages(adapter: Adapter, doc: Document, opts: Cap
   while (flags.steps < maxSteps && stable < 2) {
     opts.onProgress?.(`Loading the start of the conversation (${cache.size} messages so far)`);
     scroller.scrollTop = 0;
-    scroller.dispatchEvent(new Event('scroll'));
+    fire();
     await sleep(wait);
     flags.steps += 1;
     const fresh = collect();
@@ -70,7 +72,7 @@ export async function captureMessages(adapter: Adapter, doc: Document, opts: Cap
     const before = scroller.scrollTop;
     if (before + scroller.clientHeight >= scroller.scrollHeight - 2) break;
     scroller.scrollTop = before + step;
-    scroller.dispatchEvent(new Event('scroll'));
+    fire();
     await sleep(Math.max(40, Math.floor(wait / 3)));
     collect(order);
     if (scroller.scrollTop === before) break;

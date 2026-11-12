@@ -406,7 +406,7 @@ ${JSON.stringify(meta, null, 2)}
     const cls = `${code?.className ?? ""} ${pre.className ?? ""}`;
     const m = /(?:language|lang)-([\w+#.-]+)/i.exec(cls);
     if (m) return m[1].toLowerCase();
-    const data = pre.closest("[data-language]")?.getAttribute("data-language") ?? code?.getAttribute("data-language");
+    const data = pre.closest("[data-language]")?.getAttribute("data-language") ?? code?.getAttribute("data-language") ?? code?.getAttribute("data-code-language");
     if (data) return data.toLowerCase();
     const prev = pre.previousElementSibling ?? pre.parentElement?.previousElementSibling;
     const label = (prev?.querySelector("span")?.textContent ?? prev?.textContent ?? "").trim();
@@ -510,14 +510,14 @@ ${inner}
   }
 
   // extension/src/content/adapters/chatgpt.ts
-  var USER = '[data-chatgpt-search-unit-key$=":user"], [data-message-author-role="user"]';
-  var ASSISTANT = '[data-chatgpt-search-unit-key$=":assistant"], [data-message-author-role="assistant"]';
+  var USER = '[data-chatgpt-search-unit-key$=":user"], [data-message-author-role="user"], li[data-message-role="user"]';
+  var ASSISTANT = '[data-chatgpt-search-unit-key$=":assistant"], [data-message-author-role="assistant"], li[data-message-role="assistant"]';
   var SCROLLER = '[data-app-action-timeline-scroll], .thread-scroll-container, main [class*="overflow-y-auto"]';
   var COMPOSER = '#prompt-textarea, [data-testid="prompt-textarea"], div[contenteditable="true"][role="textbox"], form textarea';
   var idOf = (el, i) => {
     const unit = el.getAttribute("data-chatgpt-search-unit-key");
     const ids = el.getAttribute("data-chatgpt-search-message-ids")?.split(/\s+/)[0] ?? el.getAttribute("data-message-id");
-    return unit ?? ids ?? `idx-${i}`;
+    return unit ?? ids ?? (el.id || `idx-${i}`);
   };
   var chatgpt = {
     id: "chatgpt",
@@ -529,7 +529,7 @@ ${inner}
       const out = [];
       doc.querySelectorAll(`${USER}, ${ASSISTANT}`).forEach((el, i) => {
         const role = el.matches(USER) ? "user" : "assistant";
-        const body = role === "user" ? el.querySelector(".whitespace-pre-wrap") ?? el : el.querySelector("[data-markdown-text-style], .markdown") ?? el;
+        const body = role === "user" ? el.querySelector("[data-user-message-bubble], .whitespace-pre-wrap") ?? el : el.querySelector("[data-assistant-markdown-root], [data-markdown-text-style], .markdown") ?? el;
         const text = elementToText(body, { skip: (e) => e.tagName === "H4" || e.tagName === "H5" || e.tagName === "H6" ? e.classList.contains("sr-only") : false });
         const attachments = [...el.querySelectorAll('[data-testid="library-file-icon"]')].map((f) => (f.closest('[class*="file"]')?.textContent ?? "file").trim().slice(0, 80));
         if (text || attachments.length) out.push({ key: idOf(el, i), role, text, attachments });
@@ -649,7 +649,10 @@ ${inner}
       }
       return fresh;
     };
-    const scroller = adapter2.scroller(doc);
+    const scroller = adapter2.scroller(doc) ?? doc.scrollingElement;
+    const fire = () => {
+      (scroller === doc.scrollingElement ? doc.defaultView ?? scroller : scroller)?.dispatchEvent(new Event("scroll"));
+    };
     const flags = { reachedTop: "unknown", reachedBottom: "unknown", steps: 0, stoppedBecause: "the page was read as it was", streaming: adapter2.streaming(doc) };
     collect();
     if (!scroller) {
@@ -661,7 +664,7 @@ ${inner}
     while (flags.steps < maxSteps && stable < 2) {
       opts.onProgress?.(`Loading the start of the conversation (${cache.size} messages so far)`);
       scroller.scrollTop = 0;
-      scroller.dispatchEvent(new Event("scroll"));
+      fire();
       await sleep(wait);
       flags.steps += 1;
       const fresh = collect();
@@ -680,7 +683,7 @@ ${inner}
       const before = scroller.scrollTop;
       if (before + scroller.clientHeight >= scroller.scrollHeight - 2) break;
       scroller.scrollTop = before + step;
-      scroller.dispatchEvent(new Event("scroll"));
+      fire();
       await sleep(Math.max(40, Math.floor(wait / 3)));
       collect(order);
       if (scroller.scrollTop === before) break;
