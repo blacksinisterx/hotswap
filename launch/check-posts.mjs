@@ -1,10 +1,10 @@
 // Checks that every tweet in POSTS.md fits 280 characters (X counts any link as 23) and the LinkedIn post fits 3,000.
-//   node launch/check-posts.mjs
+//   node launch/check-posts.mjs [POSTS-EXTENSION.md]
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const text = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'POSTS.md'), 'utf8').replace(/\r/g, '');
+const text = readFileSync(join(dirname(fileURLToPath(import.meta.url)), process.argv[2] ?? 'POSTS.md'), 'utf8').replace(/\r/g, '');
 const weight = (s) => [...s.replace(/\{REPO\}|https?:\/\/\S+/g, 'x'.repeat(23))].length;
 
 // tweets: the ``` blocks after the "X thread" heading
