@@ -14,7 +14,9 @@ import { HotswapUI } from './ui.ts';
 declare const __DEV__: boolean;
 
 const adapter = pickAdapter(location, document, __DEV__);
-if (adapter && !document.querySelector('hotswap-root')) start(adapter);
+if (adapter && !document.querySelector('hotswap-root')) {
+  try { start(adapter); console.info(`[Hotswap] ready on ${adapter.name}`); } catch (e) { console.error('[Hotswap] could not start:', e); }
+}
 
 function start(a: NonNullable<typeof adapter>): void {
   let current: { capsule: Capsule; md: string } | null = null;

@@ -7,7 +7,12 @@ async function activeTabId(): Promise<number | undefined> {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   return tab?.id;
 }
-const tell = async (msg: object) => { const id = await activeTabId(); if (id) await chrome.tabs.sendMessage(id, msg).catch(() => alert('Open a ChatGPT, Claude or Gemini chat first.')); };
+const tell = async (msg: object) => {
+  const id = await activeTabId();
+  if (!id) return;
+  const ok = await chrome.runtime.sendMessage({ type: 'hotswap:tell', tabId: id, payload: msg }).catch(() => false);
+  if (!ok) alert('Hotswap could not start on this page. Open a ChatGPT, Claude or Gemini chat, reload it, and try again. If it still fails: chrome://extensions -> Hotswap -> Errors.');
+};
 
 async function render(): Promise<void> {
   const list = await listCapsules();

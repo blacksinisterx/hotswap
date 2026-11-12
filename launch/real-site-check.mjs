@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const DEV = join(ROOT, 'extension', 'dist-dev');
+const DEV = join(ROOT, 'extension', process.env.HOTSWAP_DIST ?? 'dist-dev');
 const OUT = join(ROOT, 'docs', 'media', 'raw', 'real');
 mkdirSync(OUT, { recursive: true });
 const site = process.argv[2] ?? 'chatgpt';

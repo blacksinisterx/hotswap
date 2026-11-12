@@ -71,7 +71,7 @@ test('the dev build matches the supported chat sites and the real build does not
   const dev = JSON.parse(readFileSync(join(DEV, 'manifest.json'), 'utf8'));
   const prod = JSON.parse(readFileSync(join(PROD, 'manifest.json'), 'utf8'));
   assert.deepEqual(prod.host_permissions, ['https://chatgpt.com/*', 'https://chat.openai.com/*', 'https://claude.ai/*', 'https://gemini.google.com/*']);
-  assert.deepEqual(prod.permissions.sort(), ['clipboardWrite', 'contextMenus', 'storage']);
+  assert.deepEqual(prod.permissions.sort(), ['clipboardWrite', 'contextMenus', 'scripting', 'storage']);
   assert.ok(!JSON.stringify(prod).includes('127.0.0.1'));
   assert.ok(dev.host_permissions.includes('http://127.0.0.1/*'));
   assert.equal(prod.manifest_version, 3);

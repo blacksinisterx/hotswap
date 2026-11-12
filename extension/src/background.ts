@@ -11,8 +11,25 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
+// Sends a message to the page's content script. If nothing answers (the script never started on that tab, for example because
+// the tab was opened before the extension was added, or the site blocked it), it is injected now and the message is sent again.
+export async function tellTab(tabId: number, msg: object): Promise<boolean> {
+  try { await chrome.tabs.sendMessage(tabId, msg); return true; } catch { /* no listener yet */ }
+  try {
+    await chrome.scripting.executeScript({ target: { tabId }, files: ['content.js'] });
+    await new Promise((r) => setTimeout(r, 400));
+    await chrome.tabs.sendMessage(tabId, msg);
+    return true;
+  } catch { return false; }
+}
+
+chrome.runtime.onMessage.addListener((msg: { type?: string; tabId?: number; payload?: object }, _sender, reply) => {
+  if (msg?.type === 'hotswap:tell' && msg.tabId && msg.payload) { void tellTab(msg.tabId, msg.payload).then(reply); return true; }
+  return undefined;
+});
+
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (!tab?.id) return;
   const type = info.menuItemId === 'hotswap-capture' ? 'hotswap:capture' : info.menuItemId === 'hotswap-insert' ? 'hotswap:insert-latest' : null;
-  if (type) chrome.tabs.sendMessage(tab.id, { type }).catch(() => undefined);
+  if (type) void tellTab(tab.id, { type });
 });

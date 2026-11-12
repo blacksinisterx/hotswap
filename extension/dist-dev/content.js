@@ -1197,7 +1197,14 @@ textarea { width: 100%; height: 120px; margin-top: 10px; background: #0f0d15; co
 
   // extension/src/content/index.ts
   var adapter = pickAdapter(location, document, true);
-  if (adapter && !document.querySelector("hotswap-root")) start(adapter);
+  if (adapter && !document.querySelector("hotswap-root")) {
+    try {
+      start(adapter);
+      console.info(`[Hotswap] ready on ${adapter.name}`);
+    } catch (e) {
+      console.error("[Hotswap] could not start:", e);
+    }
+  }
   function start(a) {
     let current = null;
     let probe = false;

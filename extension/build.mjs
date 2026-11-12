@@ -27,7 +27,7 @@ for (const dev of [false, true]) {
     name: dev ? 'Hotswap (dev)' : 'Hotswap',
     version: pkg.version.replace(/^0\.1\./, '0.2.'),
     description: 'Switch AI mid-task without losing the thread. Capture a chat as a capsule and continue it in another AI. No AI model, no server, no account.',
-    permissions: ['storage', 'contextMenus', 'clipboardWrite'],
+    permissions: ['storage', 'contextMenus', 'clipboardWrite', 'scripting'],
     host_permissions: matches,
     background: { service_worker: 'background.js' },
     action: { default_title: 'Hotswap', default_popup: 'popup.html', default_icon: { 16: 'icons/icon16.png', 32: 'icons/icon32.png', 48: 'icons/icon48.png', 128: 'icons/icon128.png' } },
