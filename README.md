@@ -84,3 +84,18 @@ When Claude Code hits a plan limit it writes a line to the session file with `is
 ## More
 
 [PLAN.md](PLAN.md) (what is next) · [PHASE0.md](PHASE0.md) (what is on a real machine) · [research/RESEARCH.md](research/RESEARCH.md) (what existing tools really do, read with REA) · MIT licence.
+
+## Chrome extension (ChatGPT, Claude, Gemini)
+
+Capture a chat as a capsule, then insert it into another AI's message box. Nothing is sent for you: you read it and press Enter.
+
+```bash
+npm install
+npm run build:extension      # writes extension/dist
+```
+
+Chrome → `chrome://extensions` → Developer mode → **Load unpacked** → pick `extension/dist`. Open a chat, click the **Hotswap** chip (bottom right) → **Capture this chat** → **Save**. Open another AI, click the chip → **Insert here**.
+
+**Checked on the real sites** (logged out, 2026-11-12, `launch/real-site-check.mjs`): the extension loads on chatgpt.com and gemini.google.com, finds the message box and inserts a capsule there. Gemini's logged-out box is a plain `textarea` (fixed in the adapter).
+**Not yet checked on real pages:** reading a real conversation (needs a signed-in chat), anything on claude.ai (login + Cloudflare), and the limit-banner wording. Turn on **probe mode** in the popup, try a capture/insert, then use the panel's probe report (counts and technique names only, no chat text) to tell me what broke.
+The 14 extension tests run on local pages that copy each site's structure, not on the real sites.

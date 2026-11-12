@@ -164,3 +164,11 @@ test('redactor: a secret written inline in a sentence is removed, a reference to
   assert.equal(redact(refs).text, refs, 'references and placeholders are not secrets');
   assert.ok(!redact('export STRIPE_SECRET_KEY="abcdef123456"').text.includes('abcdef123456'));
 });
+
+test('hash: the plain-code SHA-256 gives the same answer as Node for empty, short, unicode and long text', async () => {
+  const { createHash } = await import('node:crypto');
+  const { sha256Hex } = await import('../src/core/hash.ts');
+  for (const t of ['', 'a', 'abc', 'Hotswap \u00b7 caf\u00e9 \u2014 \u{1F600}', 'x'.repeat(55), 'x'.repeat(56), 'x'.repeat(64), 'line\n'.repeat(5000)]) {
+    assert.equal(sha256Hex(t), createHash('sha256').update(t).digest('hex'), `mismatch for ${t.length} chars`);
+  }
+});

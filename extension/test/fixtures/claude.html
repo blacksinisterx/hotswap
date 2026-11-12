@@ -1,0 +1,88 @@
+<!doctype html>
+<!--
+  TEST PAGE, not Claude. Same structure as Claude's thread markup recorded for 2026-10-17 in the MIT-licensed Clio
+  project's fixture (https://github.com/martymcenroe/Clio, tests/fixtures/claude-conversation-2026-10.html, MIT):
+  a sidebar that scrolls before the transcript, the transcript in div[data-autoscroll-container], the user's row with
+  an upload thumbnail BESIDE the text bubble [data-testid="user-message"], replies as
+  div[data-testid="assistant-message"] with a screen-reader heading, text under [data-transcript-engine-root], a code
+  block whose language label is data-find-omitted, and a toolbar with a timestamp. Words invented.
+-->
+<html>
+<head>
+  <meta charset="utf-8"><title>Synthetic Claude test conversation</title><meta name="hotswap-site" content="claude">
+  <style>
+    body { font: 15px system-ui; margin: 0; background: #262624; color: #eee; display: grid; grid-template-columns: 200px 1fr; grid-template-rows: auto 1fr auto; height: 100vh; }
+    header { grid-column: 1 / 3; padding: 12px 20px; border-bottom: 1px solid #3a3a37; font-weight: 600; }
+    header small { color: #999; font-weight: 400; margin-left: 10px; }
+    nav { border-right: 1px solid #3a3a37; overflow-y: auto; padding: 10px; } nav a { color: #aaa; display: block; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    [data-autoscroll-container] { overflow-y: auto; height: 430px; padding: 8px 24px; }
+    [data-testid="user-message"] { background: #30302e; border-radius: 12px; padding: 8px 14px; display: inline-block; }
+    [data-testid="assistant-message"] { margin: 12px 0 18px; }
+    pre { background: #1b1b19; padding: 10px; border-radius: 8px; overflow: auto; }
+    .composer { grid-column: 2; margin: 8px 24px; display: flex; gap: 8px; }
+    .ProseMirror { flex: 1; min-height: 52px; border: 1px solid #4a4a46; border-radius: 14px; padding: 12px 14px; background: #30302e; outline: none; }
+    button { border-radius: 8px; border: none; padding: 8px 14px; font-weight: 600; background: #d97757; color: #fff; }
+  </style>
+</head>
+<body>
+<header>Claude-like test page <small>(structure copy for tests; not the real site)</small></header>
+<nav><a href="/chat/00000000-0000-4000-8000-000000000000">A past conversation</a></nav>
+<div data-autoscroll-container="true">
+  <div data-testid="transcript-sizer">
+
+    <div data-testid="transcript-row">
+      <h2 data-find-omitted class="sr-only">You said: Stop and name the colours in this pattern.</h2>
+      <div data-user-scope>
+        <div data-turn-key="aaaaaaaa-0000-4000-8000-00000000000a">
+          <div data-find-omitted data-testid="file-thumbnail"><img alt="pattern-a.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACw="></div>
+          <div data-testid="user-message"><p>Stop and name the colours in this pattern. My key is AKIAABCDEFGHIJKLMNOP by the way.</p></div>
+          <div role="toolbar"><time>just now</time><button aria-label="Retry">&#8635;</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div data-testid="transcript-row">
+      <div data-testid="assistant-message" data-turn-key="bbbbbbbb-0000-4000-8000-00000000000b" data-is-streaming="false">
+        <h2 data-find-omitted class="sr-only">Claude responded: The pattern has two colours.</h2>
+        <div data-find-omitted class="status">Thought for 3 seconds</div>
+        <div data-transcript-engine-root>
+          <p>The pattern has <strong>two colours</strong>: red and blue. To list the files:</p>
+          <div role="group" aria-label="bash code">
+            <div data-find-omitted>bash</div>
+            <pre class="code-block__code"><code class="language-bash">ls -la
+echo "done"</code></pre>
+          </div>
+          <ol><li>red</li><li>blue</li></ol>
+        </div>
+        <div data-testid="message-actions"><time>just now</time><button>Copy</button></div>
+      </div>
+    </div>
+
+    <div data-testid="transcript-row">
+      <div data-user-scope>
+        <div data-turn-key="cccccccc-0000-4000-8000-00000000000c">
+          <div data-testid="user-message"><p>Great. Now write it in Python.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div data-testid="transcript-row">
+      <div data-testid="assistant-message" data-turn-key="dddddddd-0000-4000-8000-00000000000d">
+        <div data-transcript-engine-root>
+          <p>Sure:</p>
+          <div role="group" aria-label="python code"><div data-find-omitted>python</div><pre class="code-block__code"><code class="language-python">colours = ["red", "blue"]
+print(colours)</code></pre></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="composer">
+  <div class="ProseMirror" contenteditable="true" role="textbox" data-testid="chat-input" data-composer data-editor="natural"><p data-placeholder="Reply to Claude"><br></p></div>
+  <button type="button" data-send aria-label="Send message">Send</button>
+</div>
+<script src="/harness.js"></script>
+</body>
+</html>

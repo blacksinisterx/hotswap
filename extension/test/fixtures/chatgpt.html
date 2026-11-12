@@ -1,0 +1,84 @@
+<!doctype html>
+<!--
+  TEST PAGE, not ChatGPT. Same structure as ChatGPT's thread markup recorded for 2026-10-17 in the MIT-licensed Clio
+  project's fixture (https://github.com/martymcenroe/Clio, tests/fixtures/chatgpt-conversation-2026-10.html, MIT):
+  one [data-turn-key] per exchange, each message marked by [data-chatgpt-search-unit-key] ending in its role, the
+  screen-reader "You said:" headings beside the text, two code-block shapes, and a first <main> that is the empty
+  home composer. The words are invented. The composer is the one other extensions look for (not verified on the live page).
+-->
+<html>
+<head>
+  <meta charset="utf-8"><title>Synthetic ChatGPT test conversation</title><meta name="hotswap-site" content="chatgpt">
+  <style>
+    body { font: 15px system-ui; margin: 0; background: #212121; color: #ececec; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    header { padding: 12px 20px; border-bottom: 1px solid #333; font-weight: 600; }
+    header small { color: #9a9a9a; font-weight: 400; margin-left: 10px; }
+    .thread-scroll-container { height: 430px; overflow-y: auto; padding: 8px 20px; }
+    [data-chatgpt-search-unit-key$=":user"] { background: #2f2f2f; border-radius: 14px; padding: 8px 14px; margin: 12px 0 12px auto; width: fit-content; max-width: 80%; }
+    [data-chatgpt-search-unit-key$=":assistant"] { margin: 8px 0 18px; }
+    pre { background: #0d0d0d; padding: 10px; border-radius: 8px; overflow: auto; }
+    form { margin: 8px 20px; display: flex; gap: 8px; align-items: flex-end; }
+    #prompt-textarea { flex: 1; min-height: 52px; border: 1px solid #444; border-radius: 14px; padding: 12px 14px; background: #2b2b2b; outline: none; }
+    textarea#prompt-textarea { color: inherit; font: inherit; }
+    button { background: #fff; color: #000; border: none; border-radius: 50%; width: 38px; height: 38px; font-weight: 700; }
+  </style>
+</head>
+<body>
+<header>ChatGPT-like test page <small>(structure copy for tests; not the real site)</small></header>
+<main>
+  <div role="main"><h1 class="sr-only">Where should we begin?</h1></div>
+</main>
+<main>
+  <div data-app-action-timeline-scroll role="region" class="thread-scroll-container">
+
+    <div data-turn-key="11111111-1111-4111-8111-111111111111">
+      <div data-content-search-turn-key="fallback-turn-0">
+        <h4 class="sr-only">You said:</h4>
+        <div data-chatgpt-search-unit-key="fallback-turn-0:0:user" data-chatgpt-search-message-ids="11111111-1111-4111-8111-111111111111">
+          <div class="whitespace-pre-wrap">Add JWT auth to the orders endpoint. The key is in .env: JWT_SECRET=Tr0ub4dor-fixture-value-123</div>
+        </div>
+        <h4 class="sr-only">ChatGPT said:</h4>
+        <div data-chatgpt-search-unit-key="fallback-turn-0:2:assistant" data-chatgpt-search-message-ids="22222222-2222-4222-8222-222222222222 33333333-3333-4333-8333-333333333333">
+          <div data-markdown-text-style="assistant-message">
+            <p>I will add a middleware that checks the token and then protect the routes:</p>
+            <div>
+              <div class="header-row"><span>typescript</span><button>Copy</button></div>
+              <pre><code class="language-ts">export function requireAuth(req, res, next) {
+  const token = req.headers.authorization?.split(' ')[1];
+  if (!token) return res.status(401).end();
+  next();
+}</code></pre>
+            </div>
+            <ul><li>missing token returns 401</li><li>expired token returns 401</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-turn-key="44444444-4444-4444-8444-444444444444">
+      <h4 class="sr-only">You said:</h4>
+      <div data-chatgpt-search-unit-key="fallback-turn-1:0:user" data-chatgpt-search-message-ids="44444444-4444-4444-8444-444444444444">
+        <div class="whitespace-pre-wrap">Now add a test for the expired token case.</div>
+      </div>
+      <h4 class="sr-only">ChatGPT said:</h4>
+      <div data-chatgpt-search-unit-key="fallback-turn-1:2:assistant" data-chatgpt-search-message-ids="55555555-5555-4555-8555-555555555555">
+        <div data-markdown-text-style="assistant-message">
+          <p>Here is a test using a bare code block:</p>
+          <pre><code data-language="javascript">test('expired token gives 401', async () => {
+  const res = await get('/orders', { token: expired });
+  expect(res.status).toBe(401);
+});</code></pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<form onsubmit="return false">
+  <div id="prompt-textarea" class="ProseMirror" contenteditable="true" role="textbox" data-composer data-editor="natural"><p data-placeholder="Ask anything"><br></p></div>
+  <button type="button" data-testid="send-button" data-send aria-label="Send">&#8593;</button>
+</form>
+<script src="/harness.js"></script>
+</body>
+</html>

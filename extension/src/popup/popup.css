@@ -1,0 +1,16 @@
+* { box-sizing: border-box; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+body { width: 340px; margin: 0; background: #14161c; color: #e8ebf2; font-size: 13px; }
+header { padding: 12px 14px; border-bottom: 1px solid #2b303b; display: flex; gap: 8px; align-items: baseline; }
+header b { color: #ff8a3d; font-size: 15px; } header span { color: #8b93a6; font-size: 12px; }
+section { padding: 10px 14px; border-bottom: 1px solid #232833; }
+h2 { margin: 0 0 6px; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #ff8a3d; }
+button, select { font: 600 12px system-ui; border-radius: 8px; border: 1px solid #343a48; background: #1d212b; color: #e8ebf2; padding: 7px 11px; cursor: pointer; }
+button.primary { background: #ff8a3d; color: #14161c; border-color: #ff8a3d; width: 100%; }
+.hint { color: #8b93a6; font-size: 12px; margin: 6px 0 0; }
+.item { display: flex; justify-content: space-between; gap: 8px; align-items: center; padding: 6px 0; border-top: 1px solid #232833; }
+.item:first-child { border-top: none; }
+.item .t { min-width: 0; } .item .t div { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .item small { color: #8b93a6; }
+.row { display: flex; gap: 6px; }
+label { display: block; margin: 8px 0; } label select { display: block; margin-top: 4px; width: 100%; }
+label.check { display: flex; gap: 8px; align-items: flex-start; }
+footer { padding: 10px 14px; color: #8b93a6; font-size: 11px; }

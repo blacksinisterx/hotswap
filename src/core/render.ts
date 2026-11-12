@@ -1,13 +1,13 @@
 // Writes a capsule as one Markdown file that a person can read and any AI can take as an attachment or paste.
 // The last block is a small JSON record with a hash of everything above it, so `hotswap check` can tell if the file was changed.
-import { createHash } from 'node:crypto';
+import { sha256Hex } from './hash.ts';
 import type { Capsule } from './capsule.ts';
 import type { Message } from './types.ts';
 
-const TOOL_LABEL = { 'claude-code': 'Claude Code', antigravity: 'Antigravity' } as const;
+const TOOL_LABEL = { 'claude-code': 'Claude Code', antigravity: 'Antigravity', chatgpt: 'ChatGPT', 'claude-ai': 'Claude', gemini: 'Gemini' } as const;
 const MARK = '<!-- hotswap:meta -->';
 
-const sha = (s: string) => createHash('sha256').update(s).digest('hex');
+const sha = (s: string) => sha256Hex(s);
 
 /** Fence long enough that code containing ``` cannot close it. */
 function fence(text: string, lang = ''): string {

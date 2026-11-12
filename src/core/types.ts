@@ -1,7 +1,7 @@
 // The shapes every reader produces and every writer consumes. Plain data only, so tests can build them by hand.
 
 export type Role = 'user' | 'assistant';
-export type ToolName = 'claude-code' | 'antigravity';
+export type ToolName = 'claude-code' | 'antigravity' | 'chatgpt' | 'claude-ai' | 'gemini';
 
 /** One thing the AI did with a tool (ran a command, edited a file, ...). */
 export interface ToolEvent {
@@ -64,6 +64,8 @@ export interface Session {
   limit?: LimitInfo;
   /** Plain-words remarks about what could not be read or was cut. They end up in the fidelity report. */
   notes: string[];
+  /** The reader could not be sure it saw everything (a web page whose start was never reached). */
+  incomplete?: boolean;
 }
 
 export interface SessionInfo {

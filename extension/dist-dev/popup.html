@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Hotswap</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <header><b>Hotswap</b><span>switch AI mid-task</span></header>
+  <section>
+    <button id="open" class="primary">Open Hotswap on this page</button>
+    <p class="hint">Or right-click the page: "Hotswap: capture this chat".</p>
+  </section>
+  <section>
+    <h2>Saved capsules</h2>
+    <div id="list"></div>
+  </section>
+  <section>
+    <h2>Settings</h2>
+    <label>Carry word for word
+      <select id="preset"><option value="minimal">Short (last 3 turns)</option><option value="standard">Standard (last 10)</option><option value="verbose">Long (last 20)</option><option value="full">Everything</option></select>
+    </label>
+    <label class="check"><input type="checkbox" id="hints"> Notice usage-limit banners (experimental)</label>
+    <label class="check"><input type="checkbox" id="probe"> Probe mode: record how each site reacts (no chat text)</label>
+  </section>
+  <footer>Nothing leaves your computer. Hotswap never presses send.</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

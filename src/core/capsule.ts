@@ -1,6 +1,6 @@
 // Turns a Session into a capsule: a state card, the last turns verbatim, every final code block, and a fidelity report.
 // Deterministic: no model, no network. Everything written passes through the redactor first, and a failure stops the export.
-import { createHash } from 'node:crypto';
+import { sha256Hex } from './hash.ts';
 import { mergeHits, redact } from './redact.ts';
 import type { Redactor } from './redact.ts';
 import type { Artifact, LimitInfo, Message, Session, Source, Todo } from './types.ts';
@@ -55,7 +55,7 @@ export class RedactionFailed extends Error {
   }
 }
 
-const sha = (s: string) => createHash('sha256').update(s).digest('hex');
+const sha = (s: string) => sha256Hex(s);
 const cap = (s: string, n: number) => (s.length > n ? `${s.slice(0, n)}…` : s);
 
 export interface BuildOptions { preset?: Preset; now?: Date; redactor?: Redactor }
@@ -120,7 +120,7 @@ export function buildCapsule(session: Session, opts: BuildOptions = {}): Capsule
 
   const attachments = msgs.reduce((a, m) => a + (m.attachments?.length ?? 0), 0);
   const cutBySource = msgs.filter((m) => m.truncated).length;
-  const tier: Tier = session.source.tool === 'antigravity' || cutBySource > 0 ? 'partial' : preset === 'full' && cutByCap === 0 && vault.length === found.length ? 'verbatim' : 'hybrid';
+  const tier: Tier = session.source.tool === 'antigravity' || cutBySource > 0 || session.incomplete ? 'partial' : preset === 'full' && cutByCap === 0 && vault.length === found.length ? 'verbatim' : 'hybrid';
 
   const notes = session.notes.map(safe);
   if (vault.length < found.length) notes.push(`${found.length - vault.length} code block(s) are not in the vault: older versions of the same block were replaced by the newest, or the vault size cap was reached.`);
