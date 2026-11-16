@@ -1,6 +1,6 @@
 # Hotswap launch posts (LinkedIn + X)
 
-Drafts for **you** to post (posting is your call, not mine). Replace `{REPO}` with the GitHub URL once the repo exists. Every number below is one I measured; the table at the end says how to reproduce each. No claim of being "first" or "better than" anything, no competitor is named.
+Drafts for **you** to post (posting is your call, not mine).  Every number below is one I measured; the table at the end says how to reproduce each. No claim of being "first" or "better than" anything, no competitor is named.
 
 **Files to attach**
 - Video (LinkedIn and X): `docs/media/hotswap-demo.mp4` (1280x720, 47 s, 1.0 MB)
@@ -38,7 +38,7 @@ The demo is a **terminal replay of the real command output on an invented sessio
 >
 > v0.1 is the local half: 28 tests; a 238 MB session of 1,102 turns became a 41 KB capsule in 2.9 seconds on my machine. A Chrome extension for ChatGPT, Claude and Gemini chats is next.
 >
-> Code (MIT): {REPO}
+> Code (MIT): https://github.com/blacksinisterx/hotswap
 > If you try it, tell me what breaks.
 >
 > #AI #DeveloperTools #OpenSource #ClaudeCode #Antigravity
@@ -111,14 +111,14 @@ v0.1 is the local half. 28 tests. A 238 MB session (1,102 turns) became a 41 KB 
 
 Next: a Chrome extension for ChatGPT / Claude / Gemini chats.
 
-Code (MIT): {REPO}
+Code (MIT): https://github.com/blacksinisterx/hotswap
 
 Try it and tell me what breaks.
 ```
 
 ### One-post version (if you do not want a thread)
 ```
-Hit your AI's usage limit mid-task? Hotswap turns a Claude Code or Antigravity session into one Markdown capsule (goal, open tasks, last turns, exact code) another AI can continue from. No model, no server, no account. Code (MIT): {REPO} #ClaudeCode
+Hit your AI's usage limit mid-task? Hotswap turns a Claude Code or Antigravity session into one Markdown capsule (goal, open tasks, last turns, exact code) another AI can continue from. No model, no server, no account. Code (MIT): https://github.com/blacksinisterx/hotswap #ClaudeCode
 ```
 *(attach the GIF)*
 
@@ -132,7 +132,7 @@ Hit your AI's usage limit mid-task? Hotswap turns a Claude Code or Antigravity s
 ---
 
 ## Before you post (checklist)
-1. Create the GitHub repo and push (I will do it as soon as you send the URL). Replace `{REPO}` in the posts.
+1. Create the GitHub repo and push (I will do it as soon as you send the URL). Replace `https://github.com/blacksinisterx/hotswap` in the posts.
 2. Watch the video once on your phone: the terminal text must be readable.
 3. Post at your usual slot (Mon / Wed / Fri 20:00 PKT).
 4. Be ready to answer replies the same evening.

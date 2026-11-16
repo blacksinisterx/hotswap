@@ -1,6 +1,6 @@
 # Hotswap Chrome extension launch posts (LinkedIn + X)
 
-Drafts for **you** to post (posting is your call, not mine). Replace `{REPO}` with the GitHub URL once the repo exists. Every claim below is something I ran or measured; the table at the end says where each comes from. No claim of being "first" or "better than" anything, no competitor is named. These posts are about the **Chrome extension**; the CLI posts are in `POSTS.md`.
+Drafts for **you** to post (posting is your call, not mine).  Every claim below is something I ran or measured; the table at the end says where each comes from. No claim of being "first" or "better than" anything, no competitor is named. These posts are about the **Chrome extension**; the CLI posts are in `POSTS.md`.
 
 **Files to attach**
 - Video (LinkedIn and X): `docs/media/hotswap-real-demo.mp4` (1280x804, 60 s, 1.6 MB). It was recorded on the **real** chatgpt.com and gemini.google.com, not signed in. Captions are burned in.
@@ -31,7 +31,7 @@ What the video shows: one generic prompt sent on ChatGPT, Capture, Save, then re
 >
 > What is still unproven: claude.ai (I could not test it myself), the usage-limit detection (experimental; I have not seen a real limit banner yet), and anyone's setup except mine.
 >
-> Code (MIT): {REPO}
+> Code (MIT): https://github.com/blacksinisterx/hotswap
 > Load it in Chrome with "Load unpacked". If it breaks on your chat, a probe mode in the popup records what failed without recording your chat text. Send me that.
 >
 > #AI #ChromeExtension #DeveloperTools #OpenSource #ChatGPT #Gemini #Claude
@@ -88,7 +88,7 @@ Not proven yet: claude.ai, the limit-banner detection (experimental), and anyone
 
 **6/**
 ```
-Code (MIT): {REPO}
+Code (MIT): https://github.com/blacksinisterx/hotswap
 
 Load unpacked in Chrome. If it breaks on your chat, probe mode records what failed, with no chat text. Send me that.
 
