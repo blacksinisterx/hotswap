@@ -21,6 +21,7 @@
     "test": "node --test \"test/*.test.ts\"",
     "start": "node src/cli.ts",
     "build:extension": "node extension/build.mjs",
+    "package:extension": "npm run build:extension && node extension/package.mjs",
     "test:extension": "npm run build:extension && node --test \"extension/test/*.test.ts\""
   },
   "devDependencies": {

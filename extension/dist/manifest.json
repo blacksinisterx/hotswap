@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Hotswap (dev)",
+  "name": "Hotswap",
   "version": "0.2.0",
   "description": "Switch AI mid-task without losing the thread. Capture a chat as a capsule and continue it in another AI. No AI model, no server, no account.",
   "permissions": [
@@ -13,9 +13,7 @@
     "https://chatgpt.com/*",
     "https://chat.openai.com/*",
     "https://claude.ai/*",
-    "https://gemini.google.com/*",
-    "http://127.0.0.1/*",
-    "http://localhost/*"
+    "https://gemini.google.com/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -36,9 +34,7 @@
         "https://chatgpt.com/*",
         "https://chat.openai.com/*",
         "https://claude.ai/*",
-        "https://gemini.google.com/*",
-        "http://127.0.0.1/*",
-        "http://localhost/*"
+        "https://gemini.google.com/*"
       ],
       "js": [
         "content.js"

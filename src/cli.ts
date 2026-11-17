@@ -7,6 +7,8 @@ import type { Capsule, Preset } from './core/capsule.ts';
 import { renderCapsule, verifyCapsule } from './core/render.ts';
 import type { SessionInfo, ToolName } from './core/types.ts';
 import { antigravityRoot } from './readers/antigravity.ts';
+import { codexRoot } from './readers/codex.ts';
+import { geminiRoot } from './readers/geminiCli.ts';
 import { claudeRoot, readClaude } from './readers/claudeCode.ts';
 import { discover, pick, readSession } from './readers/index.ts';
 import type { ToolChoice } from './readers/index.ts';
@@ -46,7 +48,7 @@ function parse(argv: string[]): Args {
 }
 
 const str = (v: string | true | undefined): string | undefined => (typeof v === 'string' ? v : undefined);
-const toolChoice = (v: string | undefined): ToolChoice => (v === 'claude' || v === 'claude-code' ? 'claude-code' : v === 'antigravity' ? 'antigravity' : 'all');
+const toolChoice = (v: string | undefined): ToolChoice => (v === 'claude' || v === 'claude-code' ? 'claude-code' : v === 'antigravity' ? 'antigravity' : v === 'codex' ? 'codex' : v === 'gemini-cli' || v === 'gemini' ? 'gemini-cli' : 'all');
 const when = (ms: number) => new Date(ms).toISOString().replace('T', ' ').slice(0, 16);
 const TARGETS: Target[] = ['claude', 'codex', 'gemini', 'cursor', 'antigravity', 'web'];
 
@@ -162,7 +164,7 @@ function cmdCheck(args: Args): void {
 }
 
 function cmdDoctor(): void {
-  const rows: [string, string, ToolName][] = [['Claude Code', claudeRoot(), 'claude-code'], ['Antigravity', antigravityRoot(), 'antigravity']];
+  const rows: [string, string, ToolName][] = [['Claude Code', claudeRoot(), 'claude-code'], ['Antigravity', antigravityRoot(), 'antigravity'], ['Codex CLI (experimental)', codexRoot(), 'codex'], ['Gemini CLI (experimental)', geminiRoot(), 'gemini-cli']];
   console.log(`Node ${process.version}`);
   for (const [name, root, tool] of rows) {
     const found = existsSync(root) ? discover(tool) : [];

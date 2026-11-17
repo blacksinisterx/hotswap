@@ -4,7 +4,7 @@ import { sha256Hex } from './hash.ts';
 import type { Capsule } from './capsule.ts';
 import type { Message } from './types.ts';
 
-const TOOL_LABEL = { 'claude-code': 'Claude Code', antigravity: 'Antigravity', chatgpt: 'ChatGPT', 'claude-ai': 'Claude', gemini: 'Gemini' } as const;
+const TOOL_LABEL = { 'claude-code': 'Claude Code', antigravity: 'Antigravity', chatgpt: 'ChatGPT', 'claude-ai': 'Claude', gemini: 'Gemini', codex: 'Codex CLI', 'gemini-cli': 'Gemini CLI' } as const;
 const MARK = '<!-- hotswap:meta -->';
 
 const sha = (s: string) => sha256Hex(s);

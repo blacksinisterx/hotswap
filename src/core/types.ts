@@ -1,7 +1,7 @@
 // The shapes every reader produces and every writer consumes. Plain data only, so tests can build them by hand.
 
 export type Role = 'user' | 'assistant';
-export type ToolName = 'claude-code' | 'antigravity' | 'chatgpt' | 'claude-ai' | 'gemini';
+export type ToolName = 'claude-code' | 'antigravity' | 'chatgpt' | 'claude-ai' | 'gemini' | 'codex' | 'gemini-cli';
 
 /** One thing the AI did with a tool (ran a command, edited a file, ...). */
 export interface ToolEvent {

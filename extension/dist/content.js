@@ -274,7 +274,7 @@
   }
 
   // src/core/render.ts
-  var TOOL_LABEL = { "claude-code": "Claude Code", antigravity: "Antigravity", chatgpt: "ChatGPT", "claude-ai": "Claude", gemini: "Gemini" };
+  var TOOL_LABEL = { "claude-code": "Claude Code", antigravity: "Antigravity", chatgpt: "ChatGPT", "claude-ai": "Claude", gemini: "Gemini", codex: "Codex CLI", "gemini-cli": "Gemini CLI" };
   var MARK = "<!-- hotswap:meta -->";
   var sha2 = (s2) => sha256Hex(s2);
   function fence(text, lang = "") {
@@ -1196,7 +1196,7 @@ textarea { width: 100%; height: 120px; margin-top: 10px; background: #0f0d15; co
   };
 
   // extension/src/content/index.ts
-  var adapter = pickAdapter(location, document, true);
+  var adapter = pickAdapter(location, document, false);
   if (adapter && !document.querySelector("hotswap-root")) {
     try {
       start(adapter);

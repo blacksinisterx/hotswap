@@ -59,8 +59,10 @@ Choose a session with `--id` (start of the id), `--project DIR`, or `--from clau
 |---|---|---|
 | **Claude Code** | `~/.claude/projects/<project>/<session>.jsonl` | Full turns, tool calls and results, files touched, to-do list, working folder, git branch, title. Sub-agent files are left out. |
 | **Antigravity** | `~/.gemini/antigravity/brain/<id>/.system_generated/logs/overview.txt` (JSON Lines) and the three notes files | Antigravity itself cuts each message at about 1,000 characters in this log and marks some steps as cleared, so capsules say *partial*. It **never opens** `conversations/*.pb` (not readable outside the app) or `state.vscdb` (it holds sign-in data). |
+| Codex CLI *(experimental)* | `~/.codex/sessions/**/rollout-*.jsonl` | Written from the open-source cli-continues parser's description of the format. **No Codex session exists on the machine this was built on, so it is only tested on invented sessions.** Capsules from it say so. |
+| Gemini CLI *(experimental)* | `~/.gemini/tmp/<project>/chats/*.json[l]` | Same: format from cli-continues, tested on invented sessions only. Different from Antigravity, which also lives under `~/.gemini`. |
 
-Override the folders with `HOTSWAP_CLAUDE_DIR` and `HOTSWAP_ANTIGRAVITY_DIR`.
+Override the folders with `HOTSWAP_CLAUDE_DIR`, `HOTSWAP_ANTIGRAVITY_DIR`, `HOTSWAP_CODEX_DIR` and `HOTSWAP_GEMINI_DIR`. Use `--from codex` or `--from gemini-cli` to pick those tools. If you use Codex or Gemini CLI, `hotswap doctor` tells you whether sessions were found; please open an issue if a capsule looks wrong. Cursor is not supported: its chats live in an app database that also holds sign-in data, and Hotswap does not open those.
 
 ## The limit watcher
 
@@ -83,18 +85,17 @@ When Claude Code hits a plan limit it writes a line to the session file with `is
 
 ## More
 
-[PLAN.md](PLAN.md) (what is next) · [PHASE0.md](PHASE0.md) (what is on a real machine) · [research/RESEARCH.md](research/RESEARCH.md) (what existing tools really do, read with REA) · MIT licence.
+[PRIVACY.md](PRIVACY.md) (exactly what it touches) · [PLAN.md](PLAN.md) (what is next) · [PHASE0.md](PHASE0.md) (what is on a real machine) · [research/RESEARCH.md](research/RESEARCH.md) (what existing tools really do, read with REA) · MIT licence.
 
 ## Chrome extension (ChatGPT, Claude, Gemini)
 
 Capture a chat as a capsule, then insert it into another AI's message box. Nothing is sent for you: you read it and press Enter.
 
-```bash
-npm install
-npm run build:extension      # writes extension/dist
-```
+**Easiest:** download this repository as a ZIP (green **Code** button → **Download ZIP**), unzip it, and in Chrome open `chrome://extensions` → turn on **Developer mode** → **Load unpacked** → choose the folder `extension/dist` (the one that contains `manifest.json`; not `extension` itself). The built extension is committed, so no build is needed.
 
-Chrome → `chrome://extensions` → Developer mode → **Load unpacked** → pick `extension/dist`. Open a chat, click the **Hotswap** chip (bottom right) → **Capture this chat** → **Save**. Open another AI, click the chip → **Insert here**.
+**From source:** `npm install`, then `npm run build:extension` (rebuilds `extension/dist`), or `npm run package:extension` for a zip in `releases/`.
+
+Open a chat, click the **Hotswap** capsule (bottom right) → **Capture this chat** → **Save**. Open another AI, click the capsule → **Insert here**. No capsule on the page? Reload the tab, or use the toolbar icon → **Open Hotswap on this page**.
 
 **Checked on the real sites** (logged out, 2026-11-12; see `launch/extension-demo/record-real.mjs` and the video `docs/media/hotswap-real-demo.mp4`): on chatgpt.com and gemini.google.com the extension reads a real chat (capture, code kept exactly), saves the capsule and inserts it into the other site's message box. ChatGPT's real markup had changed from the notes I started with (now `li[data-message-role]`), and Gemini's logged-out message box is a plain `textarea`; both are fixed in the adapters.
 **Not yet checked on real pages:** claude.ai (needs a sign-in and passes a Cloudflare check I cannot do for you), the signed-in versions of ChatGPT and Gemini (their markup may differ), and the limit-banner wording. Turn on **probe mode** in the popup, try a capture/insert, then use the panel's probe report (counts and technique names only, no chat text) to tell me what broke.
