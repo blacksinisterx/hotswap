@@ -136,12 +136,11 @@ Round trip on fixtures (message counts equal, code-block hashes identical); adap
 7. Site terms of service; Chrome Web Store not used (no fee), so distribution is GitHub only.
 
 ## 13. Status and next step
-**Done:** Phase 1 (CLI: Claude Code and Antigravity readers, redactor, capsule, limit watcher), Phase 2 and 0b (Chrome extension for ChatGPT, Claude and Gemini with probe mode, mascot UI, real-site fixes), Phase 5 (privacy page, committed build, `npm run package:extension`, demo videos, launch posts). Verified on real pages: ChatGPT and Gemini signed out (capture, save, insert), ChatGPT signed in (the author's own check). Experimental readers for Codex CLI and Gemini CLI exist, tested on invented sessions only.
+**Done:** Phase 1 (CLI: Claude Code and Antigravity readers, redactor, capsule, limit watcher), Phase 2 and 0b (Chrome extension for ChatGPT, Claude and Gemini with probe mode, mascot UI, real-site fixes), Phase 5 (privacy page, committed build, `npm run package:extension`, demo videos, launch posts). Verified on real pages: ChatGPT and Gemini signed out (capture, save, insert), ChatGPT, Claude and Gemini signed in (the author's own check, 2026-11-17). Experimental readers for Codex CLI and Gemini CLI exist, tested on invented sessions only.
 
 **Still open, and why:**
-- claude.ai: not tested (sign-in and a Cloudflare check).
 - Web limit detection: the rules are guesses until a real limit banner is captured (probe mode saves its text).
 - Phase 3 bridge (Native Messaging so the extension reads local sessions): not built.
-- More sites (Grok, Perplexity, Copilot, DeepSeek): Copilot and DeepSeek need a sign-in; Grok and Perplexity open signed out but each needs a real test chat, which needs the author's say-so per site.
+- More sites (Grok, Perplexity, Copilot, DeepSeek): not built; the author decided the three main sites are enough for now.
 - Cursor: chats live in an app database that also holds sign-in data; not read.
 - Codex and Gemini CLI readers: need a real session from someone who uses those tools.
